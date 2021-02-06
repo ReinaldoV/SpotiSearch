@@ -23,14 +23,9 @@ class LoginViewController: UIViewController {
     override func loadView() {
        let webConfiguration = WKWebViewConfiguration()
        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-       webView.uiDelegate = self
         webView.navigationDelegate = self
        view = webView
     }
-}
-
-extension LoginViewController: WKUIDelegate {
-
 }
 
 extension LoginViewController: WKNavigationDelegate {
@@ -44,7 +39,7 @@ extension LoginViewController: WKNavigationDelegate {
                 decisionHandler(.cancel)
                 return
             }
-
+            TokenManager().requestToken(withAuthorizationCode: code)
             decisionHandler(.cancel)
             return
         }

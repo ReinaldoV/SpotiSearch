@@ -19,7 +19,7 @@ class AuthorizationManager {
         urlComponents.scheme = "https"
         urlComponents.host = "accounts.spotify.com"
         urlComponents.path = "/authorize"
-        urlComponents.queryItems = urlQueryDictionary([
+        urlComponents.addQueryItems(fromDictionary: [
             "client_id": self.clientId,
             "response_type": "code",
             "redirect_uri": redirectURI,
@@ -28,13 +28,4 @@ class AuthorizationManager {
         ])
         return urlComponents.url
     }
-
-    private func urlQueryDictionary(_ dictionary: [String: LosslessStringConvertible]) -> [URLQueryItem] {
-        return dictionary.map { (arg0) -> URLQueryItem in
-
-            let (key, value) = arg0
-            return URLQueryItem(name: key, value:(String(describing: value)))
-        }
-    }
-
 }
