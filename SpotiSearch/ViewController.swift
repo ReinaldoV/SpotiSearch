@@ -11,7 +11,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        let login = LoginViewController()
+        login.myURL = AuthorizationManager().requestAuthorizationURL()
+        self.navigationController?.pushViewController(login, animated: true)
     }
 
 
