@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
+		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9EF8A93825CC0A6300EE9AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */; };
 		9EF8A93A25CC0A6300EE9AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */; };
 		9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93B25CC0A6300EE9AED /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9EF8A93425CC0A6300EE9AED /* SpotiSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,22 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		9E5C74A425CEBDFE008D5EF4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9E5C74A525CEBE05008D5EF4 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9E5C74A525CEBE05008D5EF4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9EF8A92B25CC0A6300EE9AED = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +137,7 @@
 		9EF8A93625CC0A6300EE9AED /* SpotiSearch */ = {
 			isa = PBXGroup;
 			children = (
+				9E5C74A425CEBDFE008D5EF4 /* Utils */,
 				9E5C749425CEA335008D5EF4 /* Modules */,
 				9EF8A96C25CC0DBF00EE9AED /* Network */,
 				9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */,
@@ -289,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */,
+				9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */,
 				9EF8A93825CC0A6300EE9AED /* AppDelegate.swift in Sources */,
 				9EF8A97425CC5AFD00EE9AED /* AuthorizationManager.swift in Sources */,
 				9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */,

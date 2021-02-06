@@ -37,9 +37,18 @@ extension LoginViewController: WKNavigationDelegate {
     public func webView(_ webView: WKWebView,
                         decidePolicyFor navigationAction: WKNavigationAction,
                         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if navigationAction.request.url?.host == "login-callback" {
 
+        if navigationAction.request.url?.host == "login-callback",
+           let parameters = navigationAction.request.url?.queryParameters {
+            guard let code = parameters["code"] else {
+                decisionHandler(.cancel)
+                return
+            }
+
+            decisionHandler(.cancel)
+            return
         }
+
         decisionHandler(.allow)
     }
 }
