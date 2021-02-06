@@ -55,7 +55,17 @@ class TokenManager {
             }
 
             let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString)")
+            print("responseString = \(String(describing: responseString))")
+
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            do {
+                let tokenResponse = try decoder.decode(TokenDTO.self, from: data)
+                print(tokenResponse)
+            } catch {
+                print(error)
+            }
+
         }
 
         task.resume()
@@ -69,4 +79,10 @@ class TokenManager {
         return "Basic \(encodedString)"
 
     }
+}
+
+struct TokenDTO: Codable {
+    let accessToken: String
+    let expiresIn: Double
+    let refreshToken: String
 }

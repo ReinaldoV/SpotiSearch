@@ -43,7 +43,6 @@ extension LoginViewController: WKNavigationDelegate {
             decisionHandler(.cancel)
             return
         }
-
         decisionHandler(.allow)
     }
 }
