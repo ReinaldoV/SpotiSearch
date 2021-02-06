@@ -14,6 +14,20 @@ class TokenManager {
     let clientSecret = "4a0418c57dc9460fbc46636503d64745"
 
     func requestToken(withAuthorizationCode code: String) {
+        self.apiToken(withPetitionBody: [
+            "grant_type": "authorization_code",
+            "code": code,
+            "redirect_uri": redirectURI].percentEncoded())
+    }
+
+    func refreshToken(token: String) {
+        self.apiToken(withPetitionBody: [
+            "grant_type": "refresh_token",
+            "code": token,
+            "redirect_uri": redirectURI].percentEncoded())
+    }
+
+    private func apiToken(withPetitionBody body: Data?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "accounts.spotify.com"
@@ -24,11 +38,7 @@ class TokenManager {
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         guard let ids = self.idsEncoded() else { return }
         request.addValue(ids, forHTTPHeaderField: "Authorization")
-        request.httpBody = [
-            "grant_type": "authorization_code",
-            "code": code,
-            "redirect_uri": redirectURI,
-        ].percentEncoded()
+        request.httpBody = body
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
