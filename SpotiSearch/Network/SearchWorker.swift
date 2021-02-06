@@ -28,7 +28,9 @@ class SearchWorker {
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        request.addValue(token, forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
@@ -46,15 +48,6 @@ class SearchWorker {
 
             let responseString = String(data: data, encoding: .utf8)
             print("responseString = \(String(describing: responseString))")
-
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase
-//            do {
-//                let tokenResponse = try decoder.decode(TokenDTO.self, from: data)
-//                print(tokenResponse)
-//            } catch {
-//                print(error)
-//            }
 
         }
 
