@@ -18,23 +18,16 @@ class TokenManager {
         urlComponents.scheme = "https"
         urlComponents.host = "accounts.spotify.com"
         urlComponents.path = "/api/token"
-//        urlComponents.addQueryItems(fromDictionary: [
-//            "grant_type": "authorization_code",
-//            "code": code,
-//            "redirect_uri": redirectURI,
-//            "client_id": clientId,
-//            "client_secret": clientSecret
-//        ])
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        guard let ids = self.idsEncoded() else { return }
+        request.addValue(ids, forHTTPHeaderField: "Authorization")
         request.httpBody = [
             "grant_type": "authorization_code",
             "code": code,
             "redirect_uri": redirectURI,
-            "client_id": clientId,
-            "client_secret": clientSecret
         ].percentEncoded()
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
@@ -56,5 +49,14 @@ class TokenManager {
         }
 
         task.resume()
+    }
+
+    private func idsEncoded() -> String? {
+
+        guard let encodedString = "\(self.clientId):\(self.clientSecret)".data(using: .utf8)?.base64EncodedString()
+        else { return nil }
+
+        return "Basic \(encodedString)"
+
     }
 }
