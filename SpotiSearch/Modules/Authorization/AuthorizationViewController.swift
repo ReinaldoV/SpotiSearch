@@ -8,6 +8,9 @@ import UIKit
 
 protocol AuthorizationViewControllerProtocol: UIViewController {
     func getTokens(fromAuthCode code: String)
+    func showLoading()
+    func stopLoading()
+    func passTokenInfoToCoordinator(_ token: Token)
 }
 
 class AuthorizationViewController: UIViewController {
@@ -16,11 +19,14 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var gradientView: UIView!
 
     private var coordinator: AuthorizationCoordinatorProtocol?
+    private var presenter: AuthorizationPresenterProtocol?
 
-    static func instantiate(coordinator: AuthorizationCoordinatorProtocol?) -> AuthorizationViewController {
+    static func instantiate(coordinator: AuthorizationCoordinatorProtocol?,
+                            presenter: AuthorizationPresenterProtocol) -> AuthorizationViewController {
         let nib = UINib(nibName: "AuthorizationViewController", bundle: nil)
         let viewController = nib.instantiate(withOwner: self, options: nil)[0] as? AuthorizationViewController
         viewController?.coordinator = coordinator
+        viewController?.presenter = presenter
         return viewController ?? AuthorizationViewController()
     }
 
@@ -54,6 +60,18 @@ class AuthorizationViewController: UIViewController {
 
 extension AuthorizationViewController: AuthorizationViewControllerProtocol {
     func getTokens(fromAuthCode code: String) {
+        self.presenter?.requestToken(withAuthCode: code)
+    }
+
+    func showLoading() {
+
+    }
+
+    func stopLoading() {
+
+    }
+
+    func passTokenInfoToCoordinator(_ token: Token) {
 
     }
 }

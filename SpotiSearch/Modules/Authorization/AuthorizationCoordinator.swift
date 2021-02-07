@@ -33,7 +33,11 @@ class AuthorizationCoordinator {
     }
 
     private func showAuthorizationViewControler() {
-        let authViewController = AuthorizationViewController.instantiate(coordinator: self)
+        let interactor = AuthorizationInteractor()
+        let presenter = AuthorizationPresenter(interactor: interactor)
+        let authViewController = AuthorizationViewController.instantiate(coordinator: self, presenter: presenter)
+        interactor.presenter = presenter
+        presenter.viewController = authViewController
         let navigation = UINavigationController(rootViewController: authViewController)
         self.authViewController = authViewController
         navigation.modalPresentationStyle = .fullScreen

@@ -8,17 +8,16 @@
 import Foundation
 
 enum TokenManagerError: Error {
-    case authRevoked
     case unhandledError
 }
 
 protocol TokenManagerProtocol {
     func requestToken(withAuthorizationCode code: String,
                       onSuccess: @escaping (TokenDTO) -> Void,
-                      onError: @escaping (_ error: Error?) -> Void)
+                      onError: ((_ error: Error?) -> Void)?)
     func refreshToken(token: String,
                       onSuccess: @escaping (TokenDTO) -> Void,
-                      onError: @escaping (_ error: Error?) -> Void)
+                      onError: ((_ error: Error?) -> Void)?)
 }
 
 class TokenManager: TokenManagerProtocol {
@@ -29,7 +28,7 @@ class TokenManager: TokenManagerProtocol {
 
     func requestToken(withAuthorizationCode code: String,
                       onSuccess: @escaping (TokenDTO) -> Void,
-                      onError: @escaping (_ error: Error?) -> Void) {
+                      onError: ((_ error: Error?) -> Void)?) {
         self.apiToken(withPetitionBody: [
             "grant_type": "authorization_code",
             "code": code,
@@ -40,7 +39,7 @@ class TokenManager: TokenManagerProtocol {
 
     func refreshToken(token: String,
                       onSuccess: @escaping (TokenDTO) -> Void,
-                      onError: @escaping (_ error: Error?) -> Void) {
+                      onError: ((_ error: Error?) -> Void)?) {
         self.apiToken(withPetitionBody: [
             "grant_type": "refresh_token",
             "refresh_token": token].percentEncoded(),
@@ -50,7 +49,7 @@ class TokenManager: TokenManagerProtocol {
 
     private func apiToken(withPetitionBody body: Data?,
                           onSuccess: @escaping (TokenDTO) -> Void,
-                          onError: @escaping (_ error: Error?) -> Void) {
+                          onError: ((_ error: Error?) -> Void)?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "accounts.spotify.com"
@@ -68,18 +67,15 @@ class TokenManager: TokenManagerProtocol {
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
                 print("error", error ?? "Unknown error")
-                onError(error)
+                onError?(error)
                 return
             }
 
             guard (200 ... 299) ~= response.statusCode else { // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
-                if response.statusCode == 400 {
-                    onError(TokenManagerError.authRevoked)
-                } else {
-                    onError(TokenManagerError.unhandledError)
-                }
+                onError?(TokenManagerError.unhandledError)
+
                 return
             }
 
@@ -89,7 +85,7 @@ class TokenManager: TokenManagerProtocol {
                 let tokenResponse = try decoder.decode(TokenDTO.self, from: data)
                 onSuccess(tokenResponse)
             } catch {
-                onError(error)
+                onError?(error)
             }
         }
 
