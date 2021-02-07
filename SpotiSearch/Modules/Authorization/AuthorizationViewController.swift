@@ -17,6 +17,8 @@ class AuthorizationViewController: UIViewController {
 
     @IBOutlet weak var windowView: UIView!
     @IBOutlet weak var gradientView: UIView!
+    @IBOutlet weak var activityIndicatorLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     private var coordinator: AuthorizationCoordinatorProtocol?
     private var presenter: AuthorizationPresenterProtocol?
@@ -33,6 +35,8 @@ class AuthorizationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.roundAndBeautifyViews()
+        self.activityIndicator.isHidden = true
+        self.activityIndicatorLabel.isHidden = true
     }
 
     @IBAction func logInButton(_ sender: Any) {
@@ -64,11 +68,15 @@ extension AuthorizationViewController: AuthorizationViewControllerProtocol {
     }
 
     func showLoading() {
-
+        self.activityIndicator.isHidden = false
+        self.activityIndicatorLabel.isHidden = false
+        self.activityIndicator.startAnimating()
     }
 
     func stopLoading() {
-
+        self.activityIndicator.isHidden = true
+        self.activityIndicatorLabel.isHidden = true
+        self.activityIndicator.stopAnimating()
     }
 
     func passTokenInfoToCoordinator(_ token: Token) {

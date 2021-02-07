@@ -17,7 +17,24 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaS-d7-hYc">
                         <rect key="frame" x="0.0" y="363" width="414" height="180"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authenticating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PW0-Zv-lvH">
+                                <rect key="frame" x="151.5" y="140" width="111" height="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="geV-yy-Blc">
+                                <rect key="frame" x="126.5" y="140" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PW0-Zv-lvH" firstAttribute="leading" secondItem="geV-yy-Blc" secondAttribute="trailing" constant="5" id="6db-gD-yWi"/>
+                            <constraint firstAttribute="bottom" secondItem="PW0-Zv-lvH" secondAttribute="bottom" constant="20" id="Mkt-fM-IaZ"/>
+                            <constraint firstItem="geV-yy-Blc" firstAttribute="centerY" secondItem="PW0-Zv-lvH" secondAttribute="centerY" id="Z5g-MT-bHN"/>
+                            <constraint firstItem="PW0-Zv-lvH" firstAttribute="centerX" secondItem="TaS-d7-hYc" secondAttribute="centerX" id="wPZ-Xp-g3C"/>
+                        </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6N-la-7zo">
                         <rect key="frame" x="46.5" y="413" width="321" height="80"/>
@@ -65,6 +82,7 @@
                 <constraints>
                     <constraint firstItem="g6N-la-7zo" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="TaS-d7-hYc" secondAttribute="trailing" constant="15" id="5wv-u4-VOc"/>
                     <constraint firstItem="TaS-d7-hYc" firstAttribute="leading" secondItem="olD-zO-Dmf" secondAttribute="leading" id="CLy-Uw-wMg"/>
+                    <constraint firstItem="PW0-Zv-lvH" firstAttribute="top" secondItem="g6N-la-7zo" secondAttribute="bottom" constant="10" id="M7g-gq-cwx"/>
                     <constraint firstItem="TaS-d7-hYc" firstAttribute="bottom" secondItem="g6N-la-7zo" secondAttribute="bottom" constant="50" id="PNA-QN-Cht"/>
                     <constraint firstItem="g6N-la-7zo" firstAttribute="centerX" secondItem="TaS-d7-hYc" secondAttribute="centerX" id="QHc-t1-uUE"/>
                     <constraint firstItem="g6N-la-7zo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TaS-d7-hYc" secondAttribute="leading" constant="15" id="SO4-Kv-Qko"/>
@@ -74,6 +92,8 @@
                 </constraints>
             </view>
             <connections>
+                <outlet property="activityIndicator" destination="geV-yy-Blc" id="EZF-DK-hfK"/>
+                <outlet property="activityIndicatorLabel" destination="PW0-Zv-lvH" id="kYi-UQ-IVT"/>
                 <outlet property="gradientView" destination="g6N-la-7zo" id="gSE-NJ-ggU"/>
                 <outlet property="windowView" destination="TaS-d7-hYc" id="aVX-xj-rGL"/>
             </connections>
