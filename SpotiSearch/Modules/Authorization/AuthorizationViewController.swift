@@ -34,8 +34,8 @@ class AuthorizationViewController: UIViewController {
     }
 
     private func roundAndBeautifyViews() {
-        windowView.layer.cornerRadius = 5
-        gradientView.layer.cornerRadius = 5
+        windowView.layer.cornerRadius = 10
+        gradientView.layer.cornerRadius = 10
 
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.colors = [UIColor(red: 119 / 255, green: 195 / 255, blue: 68 / 255, alpha: 1).cgColor,
@@ -47,6 +47,7 @@ class AuthorizationViewController: UIViewController {
                                 y: 0.0,
                                 width: self.gradientView.frame.size.width,
                                 height: self.gradientView.frame.size.height)
+        gradient.cornerRadius = 10
         self.gradientView.layer.insertSublayer(gradient, at: 0)
     }
 }

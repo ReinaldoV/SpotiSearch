@@ -24,7 +24,8 @@ class AuthorizationCoordinator {
 
     private func showAuthorizationViewControler() {
         let authViewController = AuthorizationViewController.instantiate(delegate: self)
-        self.parent.show(authViewController, sender: nil)
+        authViewController.modalPresentationStyle = .fullScreen
+        self.parent.present(authViewController, animated: true, completion: nil)
     }
 
     private func showLoginViewControler() {
