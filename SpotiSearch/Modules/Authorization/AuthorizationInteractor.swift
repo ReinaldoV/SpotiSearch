@@ -27,8 +27,15 @@ class AuthorizationInteractor {
 extension AuthorizationInteractor: AuthorizationInteractorProtocol {
     func requestToken(withAuthCode code: String) {
         self.tokenManager.requestToken(withAuthorizationCode: code) { tokenDTO in
-            DispatchQueue.main.async {
-                self.presenter?.refreshInfoInView(withToken: Token(tokenDTO: tokenDTO))
+            do {
+                try self.keyChainManager.storeItem(code: tokenDTO.refreshToken)
+                DispatchQueue.main.async {
+                    self.presenter?.refreshInfoInView(withToken: Token(tokenDTO: tokenDTO))
+                }
+            } catch KeychainError.unhandledError(let status) {
+                print(status)
+            } catch {
+                print(error)
             }
         } onError: { (error) in
             //Handle Offline errors and such
