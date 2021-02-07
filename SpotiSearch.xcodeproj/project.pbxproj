@@ -18,6 +18,7 @@
 		9EAD76D625D043BD004D334E /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD76D025D043BD004D334E /* AuthorizationViewController.swift */; };
 		9EAD76DC25D043F4004D334E /* AuthorizationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EAD76DB25D043F4004D334E /* AuthorizationViewController.xib */; };
 		9EAD76E725D055A5004D334E /* AuthorizationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD76E625D055A5004D334E /* AuthorizationCoordinator.swift */; };
+		9EAD771425D0616B004D334E /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD771325D0616B004D334E /* LoginCoordinator.swift */; };
 		9EF8A93825CC0A6300EE9AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */; };
 		9EF8A93A25CC0A6300EE9AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */; };
 		9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93B25CC0A6300EE9AED /* ViewController.swift */; };
@@ -58,6 +59,7 @@
 		9EAD76D025D043BD004D334E /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		9EAD76DB25D043F4004D334E /* AuthorizationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthorizationViewController.xib; sourceTree = "<group>"; };
 		9EAD76E625D055A5004D334E /* AuthorizationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCoordinator.swift; sourceTree = "<group>"; };
+		9EAD771325D0616B004D334E /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		9EF8A93425CC0A6300EE9AED /* SpotiSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */,
+				9EAD771325D0616B004D334E /* LoginCoordinator.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				9EF8A97425CC5AFD00EE9AED /* AuthorizationManager.swift in Sources */,
 				9EAD76E725D055A5004D334E /* AuthorizationCoordinator.swift in Sources */,
 				9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */,
+				9EAD771425D0616B004D334E /* LoginCoordinator.swift in Sources */,
 				9EF8A93A25CC0A6300EE9AED /* SceneDelegate.swift in Sources */,
 				9E5C74C125CEE286008D5EF4 /* CharacterSet.swift in Sources */,
 			);

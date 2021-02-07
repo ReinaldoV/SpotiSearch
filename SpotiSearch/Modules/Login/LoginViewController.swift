@@ -11,10 +11,12 @@ class LoginViewController: UIViewController {
 
     var webView = WKWebView()
     var myURL: URL?
+    var coordinator: LoginCoordinatorProtocol?
 
-    convenience init(loginUrl: URL?) {
+    convenience init(loginUrl: URL?, coordinator: LoginCoordinatorProtocol?) {
         self.init()
         self.myURL = loginUrl
+        self.coordinator = coordinator
     }
 
     override func viewDidLoad() {
@@ -42,9 +44,10 @@ extension LoginViewController: WKNavigationDelegate {
             let parameters = navigationAction.request.url?.queryParameters {
             guard let code = parameters["code"] else {
                 decisionHandler(.cancel)
+                self.coordinator?.authCanceled()
                 return
             }
-            TokenManager().requestToken(withAuthorizationCode: code)
+            self.coordinator?.authAccepted(authCode: code)
             decisionHandler(.cancel)
             return
         }

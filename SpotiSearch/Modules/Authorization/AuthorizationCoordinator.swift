@@ -7,8 +7,13 @@
 
 import UIKit
 
-protocol AuthorizationCoordinatorProtocol: class {
+protocol AuthorizationCoordinatorProtocol {
     func openLoginWebViewController(view: UIViewController)
+}
+
+protocol AuthorizationCompleteDelegate: class {
+    func authAccepted(authCode: String)
+    func authCanceled()
 }
 
 class AuthorizationCoordinator {
@@ -34,9 +39,10 @@ class AuthorizationCoordinator {
     }
 
     private func showLoginViewControler(view: UIViewController) {
-        let loginURL = self.authManager.requestAuthorizationURL()
-        let loginViewController = LoginViewController(loginUrl: loginURL)
-        view.navigationController?.pushViewController(loginViewController, animated: true)
+        let loginCoordinator = LoginCoordinator(parentViewController: view,
+                                                loginURL: authManager.requestAuthorizationURL(),
+                                                delegate: self)
+        loginCoordinator.start()
     }
 }
 
@@ -44,5 +50,15 @@ extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
 
     func openLoginWebViewController(view: UIViewController) {
         self.showLoginViewControler(view: view)
+    }
+}
+
+extension AuthorizationCoordinator: AuthorizationCompleteDelegate {
+    func authAccepted(authCode: String) {
+
+    }
+
+    func authCanceled() {
+
     }
 }
