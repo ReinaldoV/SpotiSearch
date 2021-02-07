@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="9Ce-8t-uCe">
+        <viewController id="9Ce-8t-uCe" customClass="AuthorizationViewController" customModule="SpotiSearch" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="GCw-TW-Pga">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,13 +35,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nAf-Z7-Tfr">
+                                <rect key="frame" x="0.0" y="0.0" width="321" height="80"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logInButton:" destination="9Ce-8t-uCe" eventType="touchUpInside" id="One-9C-N5s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                         <constraints>
                             <constraint firstItem="03Y-9S-fi1" firstAttribute="leading" secondItem="g6N-la-7zo" secondAttribute="leading" constant="15" id="8bd-xn-PqV"/>
                             <constraint firstAttribute="trailing" secondItem="kyI-Dr-l2W" secondAttribute="trailing" constant="15" id="9cK-ib-Khi"/>
+                            <constraint firstItem="nAf-Z7-Tfr" firstAttribute="top" secondItem="g6N-la-7zo" secondAttribute="top" id="BOK-9C-pGF"/>
                             <constraint firstItem="kyI-Dr-l2W" firstAttribute="centerY" secondItem="g6N-la-7zo" secondAttribute="centerY" id="ETO-Io-Xco"/>
+                            <constraint firstItem="nAf-Z7-Tfr" firstAttribute="leading" secondItem="g6N-la-7zo" secondAttribute="leading" id="LLj-iM-e0b"/>
+                            <constraint firstAttribute="bottom" secondItem="nAf-Z7-Tfr" secondAttribute="bottom" id="Mxh-gE-zJM"/>
                             <constraint firstAttribute="height" constant="80" id="Zqe-cH-rnZ"/>
+                            <constraint firstAttribute="trailing" secondItem="nAf-Z7-Tfr" secondAttribute="trailing" id="iPw-qb-9Tc"/>
                             <constraint firstItem="03Y-9S-fi1" firstAttribute="centerY" secondItem="g6N-la-7zo" secondAttribute="centerY" id="mS5-hs-T3O"/>
                             <constraint firstItem="kyI-Dr-l2W" firstAttribute="leading" secondItem="03Y-9S-fi1" secondAttribute="trailing" constant="20" id="ztp-fR-NXu"/>
                         </constraints>
@@ -60,6 +73,10 @@
                     <constraint firstItem="TaS-d7-hYc" firstAttribute="centerY" secondItem="olD-zO-Dmf" secondAttribute="centerY" id="vkU-sP-bpf"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="gradientView" destination="g6N-la-7zo" id="gSE-NJ-ggU"/>
+                <outlet property="windowView" destination="TaS-d7-hYc" id="aVX-xj-rGL"/>
+            </connections>
             <point key="canvasLocation" x="131.8840579710145" y="131.91964285714286"/>
         </viewController>
     </objects>
