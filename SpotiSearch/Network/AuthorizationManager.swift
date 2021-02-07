@@ -7,7 +7,11 @@
 
 import Foundation
 
-class AuthorizationManager {
+protocol AuthorizationManagerProtocol {
+    func requestAuthorizationURL() -> URL?
+}
+
+class AuthorizationManager: AuthorizationManagerProtocol {
 
     let clientId = "51c228c4d5934113b884395161a20396"
     let redirectURI = "SpotiSearch://login-callback"
