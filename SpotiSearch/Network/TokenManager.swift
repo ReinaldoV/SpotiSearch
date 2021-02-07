@@ -23,8 +23,7 @@ class TokenManager {
     func refreshToken(token: String) {
         self.apiToken(withPetitionBody: [
             "grant_type": "refresh_token",
-            "code": token,
-            "redirect_uri": redirectURI].percentEncoded())
+            "refresh_token": token].percentEncoded())
     }
 
     private func apiToken(withPetitionBody body: Data?) {
