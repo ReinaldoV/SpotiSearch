@@ -40,7 +40,9 @@ class AuthorizationViewController: UIViewController {
     }
 
     @IBAction func logInButton(_ sender: Any) {
-        self.coordinator?.openLoginWebViewController(view: self)
+        if !self.isAlreadyLoading() {
+            self.coordinator?.openLoginWebViewController(view: self)
+        }
     }
 
     private func roundAndBeautifyViews() {
@@ -59,6 +61,10 @@ class AuthorizationViewController: UIViewController {
                                 height: self.gradientView.frame.size.height)
         gradient.cornerRadius = 10
         self.gradientView.layer.insertSublayer(gradient, at: 0)
+    }
+
+    private func isAlreadyLoading() -> Bool {
+        return self.activityIndicator.isAnimating
     }
 }
 
