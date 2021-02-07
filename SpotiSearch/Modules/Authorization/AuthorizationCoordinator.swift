@@ -20,6 +20,7 @@ class AuthorizationCoordinator {
 
     let parent: UIViewController
     let authManager: AuthorizationManagerProtocol
+    private weak var authViewController: UIViewController?
 
     init(parentViewController: UIViewController,
          authorizationManager: AuthorizationManagerProtocol = AuthorizationManager()) {
@@ -34,6 +35,7 @@ class AuthorizationCoordinator {
     private func showAuthorizationViewControler() {
         let authViewController = AuthorizationViewController.instantiate(coordinator: self)
         let navigation = UINavigationController(rootViewController: authViewController)
+        self.authViewController = navigation
         navigation.modalPresentationStyle = .fullScreen
         self.parent.present(navigation, animated: true, completion: nil)
     }
@@ -59,6 +61,10 @@ extension AuthorizationCoordinator: AuthorizationCompleteDelegate {
     }
 
     func authCanceled() {
-
+        let alert = UIAlertController(title: "Login Error",
+                                      message: "You need to log in with Spotify to search for your favorite music",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default))
+        self.authViewController?.present(alert, animated: false, completion: nil)
     }
 }

@@ -41,12 +41,12 @@ class LoginCoordinator {
 extension LoginCoordinator: LoginCoordinatorProtocol {
 
     func authAccepted(authCode: String) {
-        self.delegate?.authAccepted(authCode: authCode)
         self.loginViewController?.navigationController?.popViewController(animated: true)
+        self.delegate?.authAccepted(authCode: authCode)
     }
 
     func authCanceled() {
-        self.delegate?.authCanceled()
         self.loginViewController?.navigationController?.popViewController(animated: true)
+        self.delegate?.authCanceled()
     }
 }
