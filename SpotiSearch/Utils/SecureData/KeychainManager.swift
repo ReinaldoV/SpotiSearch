@@ -27,6 +27,18 @@ class KeychainManager: KeychainManagerProtocol {
                                     kSecAttrServer as String: server,
                                     kSecValueData as String: password]
         let status = SecItemAdd(query as CFDictionary, nil)
+        guard status != errSecSuccess else { return } //If not correct we try to update
+
+        try self.updateItem(code: code)
+    }
+
+    private func updateItem(code: String) throws {
+        let password = code.data(using: String.Encoding.utf8)!
+        let updateQuery: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
+                                          kSecAttrServer as String: server]
+        let attributes: [String: Any] = [kSecValueData as String: password]
+        let status = SecItemUpdate(updateQuery as CFDictionary, attributes as CFDictionary)
+        guard status != errSecItemNotFound else { throw KeychainError.noPassword }
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
     }
 
