@@ -11,6 +11,12 @@ class AuthorizationViewController: UIViewController {
     @IBOutlet weak var windowView: UIView!
     @IBOutlet weak var gradientView: UIView!
 
+    static func instantiate() -> AuthorizationViewController {
+        let nib = UINib(nibName: "AuthorizationViewController", bundle: nil)
+        let viewController = nib.instantiate(withOwner: self, options: nil)[0] as? AuthorizationViewController
+        return viewController ?? AuthorizationViewController()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.roundAndBeautifyViews()
@@ -25,8 +31,8 @@ class AuthorizationViewController: UIViewController {
         gradientView.layer.cornerRadius = 5
 
         let gradient: CAGradientLayer = CAGradientLayer()
-        gradient.colors = [UIColor(red: 119/255, green: 195/255, blue: 68/255, alpha: 1).cgColor,
-                           UIColor(red: 49/255, green: 212/255, blue: 111/255, alpha: 1).cgColor]
+        gradient.colors = [UIColor(red: 119 / 255, green: 195 / 255, blue: 68 / 255, alpha: 1).cgColor,
+                           UIColor(red: 49 / 255, green: 212 / 255, blue: 111 / 255, alpha: 1).cgColor]
         gradient.locations = [0.0, 1.0]
         gradient.startPoint = CGPoint(x: 0.0, y: 1.0)
         gradient.endPoint = CGPoint(x: 1.0, y: 1.0)

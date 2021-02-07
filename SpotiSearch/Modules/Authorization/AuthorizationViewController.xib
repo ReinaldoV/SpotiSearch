@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="9Ce-8t-uCe" customClass="AuthorizationViewController" customModule="SpotiSearch" customModuleProvider="target">
+        <viewController restorationIdentifier="AuthorizationViewController" id="9Ce-8t-uCe" customClass="AuthorizationViewController" customModule="SpotiSearch" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="GCw-TW-Pga">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
