@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AuthorizationCoordinatorProtocol: class {
+    func openLoginWebViewController(view: UIViewController)
+}
+
 class AuthorizationCoordinator {
 
     let parent: UIViewController
@@ -23,22 +27,22 @@ class AuthorizationCoordinator {
     }
 
     private func showAuthorizationViewControler() {
-        let authViewController = AuthorizationViewController.instantiate(delegate: self)
-        authViewController.modalPresentationStyle = .fullScreen
-        self.parent.present(authViewController, animated: true, completion: nil)
+        let authViewController = AuthorizationViewController.instantiate(coordinator: self)
+        let navigation = UINavigationController(rootViewController: authViewController)
+        navigation.modalPresentationStyle = .fullScreen
+        self.parent.present(navigation, animated: true, completion: nil)
     }
 
-    private func showLoginViewControler() {
-        let authViewController = AuthorizationViewController.instantiate(delegate: self)
-        self.parent.show(authViewController, sender: nil)
-    }
-}
-
-extension AuthorizationCoordinator: AuthorizationViewControllerDelegate {
-
-    func openLoginWebViewController(view: UIViewController) {
+    private func showLoginViewControler(view: UIViewController) {
         let loginURL = self.authManager.requestAuthorizationURL()
         let loginViewController = LoginViewController(loginUrl: loginURL)
         view.navigationController?.pushViewController(loginViewController, animated: true)
+    }
+}
+
+extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
+
+    func openLoginWebViewController(view: UIViewController) {
+        self.showLoginViewControler(view: view)
     }
 }

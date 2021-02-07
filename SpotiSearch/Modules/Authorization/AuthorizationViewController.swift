@@ -6,21 +6,17 @@
 
 import UIKit
 
-protocol AuthorizationViewControllerDelegate: class {
-    func openLoginWebViewController(view: UIViewController)
-}
-
 class AuthorizationViewController: UIViewController {
 
     @IBOutlet weak var windowView: UIView!
     @IBOutlet weak var gradientView: UIView!
 
-    private weak var delegate: AuthorizationViewControllerDelegate?
+    private var coordinator: AuthorizationCoordinatorProtocol?
 
-    static func instantiate(delegate: AuthorizationViewControllerDelegate?) -> AuthorizationViewController {
+    static func instantiate(coordinator: AuthorizationCoordinatorProtocol?) -> AuthorizationViewController {
         let nib = UINib(nibName: "AuthorizationViewController", bundle: nil)
         let viewController = nib.instantiate(withOwner: self, options: nil)[0] as? AuthorizationViewController
-        viewController?.delegate = delegate
+        viewController?.coordinator = coordinator
         return viewController ?? AuthorizationViewController()
     }
 
@@ -30,7 +26,7 @@ class AuthorizationViewController: UIViewController {
     }
 
     @IBAction func logInButton(_ sender: Any) {
-        self.delegate?.openLoginWebViewController(view: self)
+        self.coordinator?.openLoginWebViewController(view: self)
     }
 
     private func roundAndBeautifyViews() {
