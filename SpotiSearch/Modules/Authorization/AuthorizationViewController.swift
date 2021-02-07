@@ -6,6 +6,10 @@
 
 import UIKit
 
+protocol AuthorizationViewControllerProtocol: UIViewController {
+    func getTokens(fromAuthCode code: String)
+}
+
 class AuthorizationViewController: UIViewController {
 
     @IBOutlet weak var windowView: UIView!
@@ -45,5 +49,11 @@ class AuthorizationViewController: UIViewController {
                                 height: self.gradientView.frame.size.height)
         gradient.cornerRadius = 10
         self.gradientView.layer.insertSublayer(gradient, at: 0)
+    }
+}
+
+extension AuthorizationViewController: AuthorizationViewControllerProtocol {
+    func getTokens(fromAuthCode code: String) {
+
     }
 }

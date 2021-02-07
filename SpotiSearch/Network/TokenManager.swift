@@ -7,26 +7,50 @@
 
 import Foundation
 
-class TokenManager {
+enum TokenManagerError: Error {
+    case authRevoked
+    case unhandledError
+}
 
-    let redirectURI = "SpotiSearch://login-callback"
-    let clientId = "51c228c4d5934113b884395161a20396"
-    let clientSecret = "4a0418c57dc9460fbc46636503d64745"
+protocol TokenManagerProtocol {
+    func requestToken(withAuthorizationCode code: String,
+                      onSuccess: @escaping (TokenDTO) -> Void,
+                      onError: @escaping (_ error: Error?) -> Void)
+    func refreshToken(token: String,
+                      onSuccess: @escaping (TokenDTO) -> Void,
+                      onError: @escaping (_ error: Error?) -> Void)
+}
 
-    func requestToken(withAuthorizationCode code: String) {
+class TokenManager: TokenManagerProtocol {
+
+    private let redirectURI = "SpotiSearch://login-callback"
+    private let clientId = "51c228c4d5934113b884395161a20396" //This should be better as Enviorment variables
+    private let clientSecret = "4a0418c57dc9460fbc46636503d64745" //This should be better as Enviorment variables
+
+    func requestToken(withAuthorizationCode code: String,
+                      onSuccess: @escaping (TokenDTO) -> Void,
+                      onError: @escaping (_ error: Error?) -> Void) {
         self.apiToken(withPetitionBody: [
             "grant_type": "authorization_code",
             "code": code,
-            "redirect_uri": redirectURI].percentEncoded())
+            "redirect_uri": redirectURI].percentEncoded(),
+                      onSuccess: onSuccess,
+                      onError: onError)
     }
 
-    func refreshToken(token: String) {
+    func refreshToken(token: String,
+                      onSuccess: @escaping (TokenDTO) -> Void,
+                      onError: @escaping (_ error: Error?) -> Void) {
         self.apiToken(withPetitionBody: [
             "grant_type": "refresh_token",
-            "refresh_token": token].percentEncoded())
+            "refresh_token": token].percentEncoded(),
+                      onSuccess: onSuccess,
+                      onError: onError)
     }
 
-    private func apiToken(withPetitionBody body: Data?) {
+    private func apiToken(withPetitionBody body: Data?,
+                          onSuccess: @escaping (TokenDTO) -> Void,
+                          onError: @escaping (_ error: Error?) -> Void) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "accounts.spotify.com"
@@ -42,41 +66,41 @@ class TokenManager {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
-                error == nil else {                                              // check for fundamental networking error
+                error == nil else { // check for fundamental networking error
                 print("error", error ?? "Unknown error")
+                onError(error)
                 return
             }
 
-            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+            guard (200 ... 299) ~= response.statusCode else { // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
+                if response.statusCode == 400 {
+                    onError(TokenManagerError.authRevoked)
+                } else {
+                    onError(TokenManagerError.unhandledError)
+                }
                 return
             }
-
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
 
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             do {
                 let tokenResponse = try decoder.decode(TokenDTO.self, from: data)
-                print(tokenResponse)
+                onSuccess(tokenResponse)
             } catch {
-                print(error)
+                onError(error)
             }
-
         }
 
         task.resume()
     }
 
     private func idsEncoded() -> String? {
-
         guard let encodedString = "\(self.clientId):\(self.clientSecret)".data(using: .utf8)?.base64EncodedString()
-        else { return nil }
+            else { return nil }
 
         return "Basic \(encodedString)"
-
     }
 }
 

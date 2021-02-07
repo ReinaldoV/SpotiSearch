@@ -13,7 +13,12 @@ enum KeychainError: Error {
     case unhandledError(status: OSStatus)
 }
 
-class KeychainManager {
+protocol KeychainManagerProtocol {
+    func storeItem(code: String) throws
+    func searchItem() throws -> String
+}
+
+class KeychainManager: KeychainManagerProtocol {
     let server = "reinaldovillajavi.SpotiSearch"
 
     func storeItem(code: String) throws {
@@ -37,10 +42,10 @@ class KeychainManager {
         guard status != errSecItemNotFound else { throw KeychainError.noPassword }
         guard status == errSecSuccess else { throw KeychainError.unhandledError(status: status) }
 
-        guard let existingItem = item as? [String : Any],
+        guard let existingItem = item as? [String: Any],
             let passwordData = existingItem[kSecValueData as String] as? Data,
             let password = String(data: passwordData, encoding: String.Encoding.utf8)
-        else {
+            else {
             throw KeychainError.unexpectedPasswordData
         }
         return password

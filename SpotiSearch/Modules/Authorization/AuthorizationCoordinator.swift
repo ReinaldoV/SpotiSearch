@@ -20,7 +20,7 @@ class AuthorizationCoordinator {
 
     let parent: UIViewController
     let authManager: AuthorizationManagerProtocol
-    private weak var authViewController: UIViewController?
+    private weak var authViewController: AuthorizationViewControllerProtocol?
 
     init(parentViewController: UIViewController,
          authorizationManager: AuthorizationManagerProtocol = AuthorizationManager()) {
@@ -35,7 +35,7 @@ class AuthorizationCoordinator {
     private func showAuthorizationViewControler() {
         let authViewController = AuthorizationViewController.instantiate(coordinator: self)
         let navigation = UINavigationController(rootViewController: authViewController)
-        self.authViewController = navigation
+        self.authViewController = authViewController
         navigation.modalPresentationStyle = .fullScreen
         self.parent.present(navigation, animated: true, completion: nil)
     }
@@ -57,7 +57,7 @@ extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
 
 extension AuthorizationCoordinator: AuthorizationCompleteDelegate {
     func authAccepted(authCode: String) {
-
+        self.authViewController?.getTokens(fromAuthCode: authCode)
     }
 
     func authCanceled() {
