@@ -9,11 +9,11 @@ import Foundation
 
 class SearchWorker {
 
-    enum SearchType: String {
+    enum SearchCategories: String {
         case album, artist, playlist, track, show, episode
     }
 
-    func search(withToken token: String, search:String) {
+    func search(_ search: String, for categories: [SearchCategories], withToken token: String) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.spotify.com"
@@ -21,7 +21,7 @@ class SearchWorker {
         urlComponents.addQueryItems(fromDictionary: [
             "q": search,
             "response_type": "code",
-            "type": SearchType.album.rawValue,
+            "type": categories.map{ $0.rawValue }.joined(separator: ","),
             "limit": 20,
             "offset": 0
         ])
