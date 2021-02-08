@@ -11,6 +11,17 @@ class SearchManager {
 
     enum SearchCategories: String {
         case album, artist, track, playlist, show, episode
+
+        init(withSearchItemType type: SearchItemType) {
+            switch type {
+            case .album:
+                self = .album
+            case .artist:
+                self = .artist
+            case .track:
+                self = .track
+            }
+        }
     }
 
     func search(_ search: String,
@@ -41,12 +52,14 @@ class SearchManager {
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
                 print("error", error ?? "Unknown error")
+                onError?(error)
                 return
             }
 
             guard (200 ... 299) ~= response.statusCode else { // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
+                onError?(nil)
                 return
             }
 

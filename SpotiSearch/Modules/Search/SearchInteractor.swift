@@ -8,6 +8,7 @@
 protocol SearchInteractorProtocol: class {
 
     func getToken(withRefreshToken refreshToken: String)
+    func makeSearch(_ search: String, oftype types: [SearchItemType])
 }
 
 class SearchInteractor {
@@ -15,6 +16,7 @@ class SearchInteractor {
     let tokenManager: TokenManager
     let searchManager: SearchManager
     let presenter: SearchPresenterProtocol
+    var searchItems = [SearchItem]()
     var token: Token?
 
     init(tokenManager: TokenManager,
@@ -36,5 +38,17 @@ extension SearchInteractor: SearchInteractorProtocol {
         } onError: { error in
             //Handle errors
         }
+    }
+
+    func makeSearch(_ search: String, oftype types: [SearchItemType]) {
+        guard let validToken = self.token?.accessToken else { return }
+        self.searchManager.search(search,
+                                  for: types.map { SearchManager.SearchCategories(withSearchItemType: $0) },
+                                  withToken: validToken,
+                                  onSuccess: { results in
+                                      self.searchItems = results.map { SearchItem(withDTO: $0) }
+                                    //Call to Presenter and update the view on main thread
+                                  },
+                                  onError: nil)
     }
 }
