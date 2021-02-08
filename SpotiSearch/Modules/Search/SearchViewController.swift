@@ -11,6 +11,7 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var typeCollectionView: UICollectionView!
+    @IBOutlet weak var resultsTableView: UITableView!
     let searchTypeCellIdentifier = "kSearchTypeCell"
 
     override func viewDidLoad() {
