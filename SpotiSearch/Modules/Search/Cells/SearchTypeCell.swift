@@ -9,7 +9,7 @@ import UIKit
 
 class SearchTypeCell: UICollectionViewCell {
 
-    enum CellType: String {
+    enum CellType: String, CaseIterable {
         case Top
         case Tracks
         case Artist

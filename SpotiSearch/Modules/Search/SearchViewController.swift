@@ -15,9 +15,20 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         self.setupCollectionView()
+        self.setupSearchBar()
     }
 
     @IBAction func avatarButton(_ sender: Any) {
+    }
+
+    private func setupSearchBar() {
+        // SearchBar text
+        let textFieldInsideUISearchBar = searchBar.value(forKey: "searchField") as? UITextField
+        textFieldInsideUISearchBar?.textColor = UIColor.white
+
+        // SearchBar placeholder
+        let labelInsideUISearchBar = textFieldInsideUISearchBar!.value(forKey: "placeholderLabel") as? UILabel
+        labelInsideUISearchBar?.textColor = UIColor.white
     }
 
     private func setupCollectionView() {
@@ -47,7 +58,7 @@ extension SearchViewController: UICollectionViewDelegate {
 
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return SearchTypeCell.CellType.allCases.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -57,7 +68,7 @@ extension SearchViewController: UICollectionViewDataSource {
             return SearchTypeCell()
         }
 
-        typeCell.configureCell(type: .Top)
+        typeCell.configureCell(type: SearchTypeCell.CellType.allCases[indexPath.row])
         return typeCell
     }
 }
