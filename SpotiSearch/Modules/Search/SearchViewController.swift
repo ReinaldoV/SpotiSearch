@@ -82,7 +82,7 @@ extension SearchViewController: UICollectionViewDataSource {
             return SearchTypeCell()
         }
 
-        typeCell.configureCell(type: SearchTypeCell.CellType.allCases[indexPath.row])
+        typeCell.configureCell(type: SearchTypeCell.CellType.allCases[indexPath.row], isSelected: false)
         return typeCell
     }
 }
