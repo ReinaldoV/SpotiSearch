@@ -59,6 +59,8 @@ class SearchViewController: UIViewController {
         tableView.register(resultCellNib, forCellReuseIdentifier: self.resultCellIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
+        tableView.separatorStyle = .none
     }
 }
 

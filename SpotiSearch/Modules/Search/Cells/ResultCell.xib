@@ -51,7 +51,7 @@
                         </connections>
                     </button>
                 </subviews>
-                <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="c5m-1m-eWb" firstAttribute="top" secondItem="Ubn-sF-Z2g" secondAttribute="top" constant="8" id="1bo-Ui-TyT"/>
                     <constraint firstItem="c5m-1m-eWb" firstAttribute="leading" secondItem="Ubn-sF-Z2g" secondAttribute="trailing" constant="10" id="3tO-sd-JOu"/>
@@ -65,6 +65,7 @@
                     <constraint firstItem="CMU-53-tih" firstAttribute="top" secondItem="u1F-h1-F6C" secondAttribute="top" constant="15" id="hCL-3R-ra0"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="descriptionsLabel" destination="QK1-51-9mc" id="78U-OM-eD2"/>
                 <outlet property="elementLabel" destination="c5m-1m-eWb" id="gyB-26-zbM"/>
