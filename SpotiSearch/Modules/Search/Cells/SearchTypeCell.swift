@@ -28,6 +28,6 @@ class SearchTypeCell: UICollectionViewCell {
     }
 
     private func roundImageView() {
-        whiteBackgroundView.layer.cornerRadius = whiteBackgroundView.frame.height / 2
+        whiteBackgroundView.layer.cornerRadius = 15
     }
 }
