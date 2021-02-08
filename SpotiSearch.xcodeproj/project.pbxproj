@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9E2472E325D17DE500D4AF9C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2472E225D17DE500D4AF9C /* SearchViewController.swift */; };
+		9E2472E825D17DF700D4AF9C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E2472E725D17DF700D4AF9C /* SearchViewController.xib */; };
+		9E2472EE25D1846E00D4AF9C /* SearchTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E2472ED25D1846E00D4AF9C /* SearchTypeCell.xib */; };
+		9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */; };
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
 		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9E5C74AD25CEC263008D5EF4 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */; };
@@ -51,6 +55,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9E2472E225D17DE500D4AF9C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9E2472E725D17DF700D4AF9C /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		9E2472ED25D1846E00D4AF9C /* SearchTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTypeCell.xib; sourceTree = "<group>"; };
+		9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeCell.swift; sourceTree = "<group>"; };
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -121,9 +129,29 @@
 			path = Authorization;
 			sourceTree = "<group>";
 		};
+		9E2472E125D1791300D4AF9C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				9E2472EC25D1844200D4AF9C /* Cells */,
+				9E2472E225D17DE500D4AF9C /* SearchViewController.swift */,
+				9E2472E725D17DF700D4AF9C /* SearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		9E2472EC25D1844200D4AF9C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9E2472ED25D1846E00D4AF9C /* SearchTypeCell.xib */,
+				9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9E5C749425CEA335008D5EF4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				9E2472E125D1791300D4AF9C /* Search */,
 				9E17C33025D03A97008A1A50 /* Authorization */,
 				9E5C749525CEA348008D5EF4 /* Login */,
 			);
@@ -338,6 +366,8 @@
 				9EAD76DC25D043F4004D334E /* AuthorizationViewController.xib in Resources */,
 				9EF8A94425CC0A6400EE9AED /* LaunchScreen.storyboard in Resources */,
 				9EF8A94125CC0A6400EE9AED /* Assets.xcassets in Resources */,
+				9E2472EE25D1846E00D4AF9C /* SearchTypeCell.xib in Resources */,
+				9E2472E825D17DF700D4AF9C /* SearchViewController.xib in Resources */,
 				9EF8A93F25CC0A6300EE9AED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,7 +396,9 @@
 				9EAD771925D06FF7004D334E /* AuthorizationPresenter.swift in Sources */,
 				9E5C74B725CEDE1A008D5EF4 /* URLComponents.swift in Sources */,
 				9E5C74BC25CEE221008D5EF4 /* Dictionary.swift in Sources */,
+				9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */,
 				9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */,
+				9E2472E325D17DE500D4AF9C /* SearchViewController.swift in Sources */,
 				9E5C74B225CEDC73008D5EF4 /* TokenManager.swift in Sources */,
 				9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */,
 				9E5C754225CF023C008D5EF4 /* SearchWorker.swift in Sources */,
