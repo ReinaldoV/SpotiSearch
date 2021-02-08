@@ -14,8 +14,13 @@ class ViewController: UIViewController {
 //        let login = LoginViewController()
 //        login.myURL = AuthorizationManager().requestAuthorizationURL()
 //        self.navigationController?.pushViewController(login, animated: true)
-        let coord = AuthorizationCoordinator(parentViewController: self)
-        coord.start()
+
+//        let coord = AuthorizationCoordinator(parentViewController: self)
+//        coord.start()
+
+        let nib = UINib(nibName: "SearchViewController", bundle: nil)
+        let search = nib.instantiate(withOwner: self, options: nil)[0] as? SearchViewController ?? UIViewController()
+        self.navigationController?.pushViewController(search, animated: true)
     }
 
 

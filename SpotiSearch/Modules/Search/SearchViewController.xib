@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <viewController id="d9s-lk-bmf">
+        <viewController id="d9s-lk-bmf" customClass="SearchViewController" customModule="SpotiSearch" customModuleProvider="target">
             <view key="view" contentMode="scaleToFill" id="NOu-jX-L0h">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,10 +30,13 @@
                             <constraint firstAttribute="height" constant="40" id="sem-YB-oBB"/>
                         </constraints>
                         <color key="tintColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <action selector="avatarButton:" destination="d9s-lk-bmf" eventType="touchUpInside" id="zJo-QB-cXM"/>
+                        </connections>
                     </button>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-sy-Yon">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Faf-sy-Yon">
                         <rect key="frame" x="0.0" y="84" width="414" height="50"/>
-                        <color key="backgroundColor" red="0.15686274509803921" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="bJg-Rz-tCw"/>
                         </constraints>
@@ -63,6 +66,10 @@
                     <constraint firstItem="SRk-Bh-YUD" firstAttribute="leading" secondItem="FkA-rK-wEC" secondAttribute="leading" id="yXP-CY-2yx"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="searchBar" destination="SRk-Bh-YUD" id="Q1p-eF-M5X"/>
+                <outlet property="typeCollectionView" destination="Faf-sy-Yon" id="qiY-HC-OaD"/>
+            </connections>
             <point key="canvasLocation" x="302.89855072463769" y="103.79464285714285"/>
         </viewController>
     </objects>

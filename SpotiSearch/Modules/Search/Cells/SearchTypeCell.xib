@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jGm-Ix-Vni" customClass="SearchTypeCell" customModule="SpotiSearch" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="kSearchTypeCell" id="jGm-Ix-Vni" customClass="SearchTypeCell" customModule="SpotiSearch" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="111" height="49"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YdL-E9-wTH">
@@ -22,7 +22,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-OI-Wei">
-                        <rect key="frame" x="0.0" y="0.0" width="111" height="49"/>
+                        <rect key="frame" x="10" y="2" width="91" height="45"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" red="0.15686274510000001" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,11 +30,11 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="bfo-OI-Wei" firstAttribute="leading" secondItem="YdL-E9-wTH" secondAttribute="leading" id="08Z-Zk-PiZ"/>
+                    <constraint firstItem="bfo-OI-Wei" firstAttribute="leading" secondItem="mAa-bg-Raq" secondAttribute="leading" constant="10" id="08Z-Zk-PiZ"/>
                     <constraint firstItem="mAa-bg-Raq" firstAttribute="leading" secondItem="YdL-E9-wTH" secondAttribute="leading" id="D1f-tt-S25"/>
-                    <constraint firstAttribute="trailing" secondItem="bfo-OI-Wei" secondAttribute="trailing" id="HOz-n1-ArH"/>
-                    <constraint firstItem="bfo-OI-Wei" firstAttribute="top" secondItem="YdL-E9-wTH" secondAttribute="top" id="IYM-tW-mfy"/>
-                    <constraint firstAttribute="bottom" secondItem="bfo-OI-Wei" secondAttribute="bottom" id="eGw-4L-MWy"/>
+                    <constraint firstItem="mAa-bg-Raq" firstAttribute="trailing" secondItem="bfo-OI-Wei" secondAttribute="trailing" constant="10" id="HOz-n1-ArH"/>
+                    <constraint firstItem="bfo-OI-Wei" firstAttribute="top" secondItem="mAa-bg-Raq" secondAttribute="top" constant="2" id="IYM-tW-mfy"/>
+                    <constraint firstItem="mAa-bg-Raq" firstAttribute="bottom" secondItem="bfo-OI-Wei" secondAttribute="bottom" constant="2" id="eGw-4L-MWy"/>
                     <constraint firstAttribute="bottom" secondItem="mAa-bg-Raq" secondAttribute="bottom" id="jOS-sF-evl"/>
                     <constraint firstAttribute="trailing" secondItem="mAa-bg-Raq" secondAttribute="trailing" id="nwy-en-qde"/>
                     <constraint firstItem="mAa-bg-Raq" firstAttribute="top" secondItem="YdL-E9-wTH" secondAttribute="top" id="zT2-la-PFy"/>
