@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SearchViewControllerProtocol: class {
+
+}
+
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -15,6 +19,12 @@ class SearchViewController: UIViewController {
     let searchTypeCellIdentifier = "kSearchTypeCell"
     let resultCellIdentifier = "kResultCell"
     var firstLoad = true
+
+    static func instantiate() -> SearchViewController {
+        let nib = UINib(nibName: "SearchViewController", bundle: nil)
+        let viewController = nib.instantiate(withOwner: self, options: nil)[0] as? SearchViewController
+        return viewController ?? SearchViewController()
+    }
 
     override func viewDidLoad() {
         self.setupCollectionView()
@@ -122,4 +132,8 @@ extension SearchViewController: UITableViewDataSource {
         resultCell.selectionStyle = .none
         return resultCell
     }
+}
+
+extension SearchViewController: SearchViewControllerProtocol {
+
 }

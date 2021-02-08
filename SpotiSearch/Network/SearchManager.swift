@@ -1,5 +1,5 @@
 //
-//  SearchWorker.swift
+//  SearchManager.swift
 //  SpotiSearch
 //
 //  Created by Reinaldo Villanueva Javierre on 6/2/21.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-class SearchWorker {
+class SearchManager {
 
     enum SearchCategories: String {
-        case album, artist, playlist, track, show, episode
+        case album, artist, track, playlist, show, episode
     }
 
     func search(_ search: String, for categories: [SearchCategories], withToken token: String) {
@@ -21,7 +21,7 @@ class SearchWorker {
         urlComponents.addQueryItems(fromDictionary: [
             "q": search,
             "response_type": "code",
-            "type": categories.map{ $0.rawValue }.joined(separator: ","),
+            "type": categories.map { $0.rawValue }.joined(separator: ","),
             "limit": 20,
             "offset": 0
         ])
@@ -35,12 +35,12 @@ class SearchWorker {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
-                error == nil else {                                              // check for fundamental networking error
+                error == nil else { // check for fundamental networking error
                 print("error", error ?? "Unknown error")
                 return
             }
 
-            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+            guard (200 ... 299) ~= response.statusCode else { // check for http errors
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
                 return

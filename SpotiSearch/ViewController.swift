@@ -18,8 +18,8 @@ class ViewController: UIViewController {
 //        let coord = AuthorizationCoordinator(parentViewController: self)
 //        coord.start()
 
-        let nib = UINib(nibName: "SearchViewController", bundle: nil)
-        let search = nib.instantiate(withOwner: self, options: nil)[0] as? SearchViewController ?? UIViewController()
+
+        let search = SearchViewController.instantiate()
         self.navigationController?.pushViewController(search, animated: true)
     }
 
