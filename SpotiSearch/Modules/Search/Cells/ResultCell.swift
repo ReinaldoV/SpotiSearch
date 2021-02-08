@@ -24,14 +24,14 @@ class ResultCell: UITableViewCell {
     private func setFavorite() {
         let imageConfig = UIImage.SymbolConfiguration(scale: .large)
         let image = UIImage(systemName: "heart.fill", withConfiguration: imageConfig)
-        image?.withTintColor(UIColor(red: 168 / 255, green: 59 / 255, blue: 94 / 255, alpha: 1))
+        self.favoriteButton.tintColor = UIColor(red: 168 / 255, green: 59 / 255, blue: 94 / 255, alpha: 1)
         self.favoriteButton.setImage(image, for: .normal)
     }
 
     private func unsetFavorite() {
         let imageConfig = UIImage.SymbolConfiguration(scale: .large)
         let image = UIImage(systemName: "heart", withConfiguration: imageConfig)
-        image?.withTintColor(UIColor(red: 100 / 255, green: 100 / 255, blue: 100 / 255, alpha: 1))
+        self.favoriteButton.tintColor = UIColor(red: 100 / 255, green: 100 / 255, blue: 100 / 255, alpha: 1)
         self.favoriteButton.setImage(image, for: .normal)
     }
 
