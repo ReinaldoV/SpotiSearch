@@ -13,7 +13,11 @@ class SearchManager {
         case album, artist, track, playlist, show, episode
     }
 
-    func search(_ search: String, for categories: [SearchCategories], withToken token: String) {
+    func search(_ search: String,
+                for categories: [SearchCategories],
+                withToken token: String,
+                onSuccess: @escaping ([SearchResultDTO]) -> Void,
+                onError: ((_ error: Error?) -> Void)?) {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.spotify.com"
@@ -46,11 +50,56 @@ class SearchManager {
                 return
             }
 
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
-
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            do {
+                let resultDTO = try decoder.decode(ResponseResultDTO.self, from: data)
+                let combined = [resultDTO.albums, resultDTO.artists, resultDTO.tracks]
+                    .compactMap { $0 }
+                    .flatMap({ $0 })
+                onSuccess(combined)
+            } catch {
+                onError?(error)
+            }
         }
 
         task.resume()
     }
+}
+
+struct ResponseResultDTO: Codable {
+    let albums: [SearchResultDTO]?
+    let artists: [SearchResultDTO]?
+    let tracks: [SearchResultDTO]?
+}
+
+struct SearchResultDTO: Codable {
+    let name: String
+    let type: typeDTO
+    let id: String
+    let popularity: Int?
+    let images: [ImageResultDTO]?
+    let artist: [ArtistDTO]?
+    let album: AlbumDTO?
+}
+
+struct ArtistDTO: Codable {
+    let name: String
+}
+
+struct ImageResultDTO: Codable {
+    let height: Int
+    let width: Int
+    let url: URL?
+}
+
+struct AlbumDTO: Codable {
+    let name: String
+    let images: [ImageResultDTO]?
+}
+
+enum typeDTO: String, Codable {
+    case track
+    case album
+    case artist
 }
