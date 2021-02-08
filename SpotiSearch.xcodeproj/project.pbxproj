@@ -13,6 +13,8 @@
 		9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */; };
 		9E24730525D1A4ED00D4AF9C /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24730425D1A4ED00D4AF9C /* ResultCell.swift */; };
 		9E24730A25D1A4FB00D4AF9C /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E24730925D1A4FB00D4AF9C /* ResultCell.xib */; };
+		9E24731025D1AE5F00D4AF9C /* ResultCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24730F25D1AE5F00D4AF9C /* ResultCellModel.swift */; };
+		9E24731525D1AF2A00D4AF9C /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24731425D1AF2A00D4AF9C /* UIImageViewExtension.swift */; };
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
 		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9E5C74AD25CEC263008D5EF4 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */; };
@@ -63,6 +65,8 @@
 		9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeCell.swift; sourceTree = "<group>"; };
 		9E24730425D1A4ED00D4AF9C /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		9E24730925D1A4FB00D4AF9C /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
+		9E24730F25D1AE5F00D4AF9C /* ResultCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCellModel.swift; sourceTree = "<group>"; };
+		9E24731425D1AF2A00D4AF9C /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		9E2472E125D1791300D4AF9C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				9E24730E25D1AE4C00D4AF9C /* Models */,
 				9E2472EC25D1844200D4AF9C /* Cells */,
 				9E2472E225D17DE500D4AF9C /* SearchViewController.swift */,
 				9E2472E725D17DF700D4AF9C /* SearchViewController.xib */,
@@ -152,6 +157,14 @@
 				9E24730925D1A4FB00D4AF9C /* ResultCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9E24730E25D1AE4C00D4AF9C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9E24730F25D1AE5F00D4AF9C /* ResultCellModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9E5C749425CEA335008D5EF4 /* Modules */ = {
@@ -189,6 +202,7 @@
 				9E5C74B625CEDE1A008D5EF4 /* URLComponents.swift */,
 				9E5C74BB25CEE221008D5EF4 /* Dictionary.swift */,
 				9E5C74C025CEE286008D5EF4 /* CharacterSet.swift */,
+				9E24731425D1AF2A00D4AF9C /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -406,6 +420,7 @@
 				9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */,
 				9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */,
 				9E24730525D1A4ED00D4AF9C /* ResultCell.swift in Sources */,
+				9E24731025D1AE5F00D4AF9C /* ResultCellModel.swift in Sources */,
 				9E2472E325D17DE500D4AF9C /* SearchViewController.swift in Sources */,
 				9E5C74B225CEDC73008D5EF4 /* TokenManager.swift in Sources */,
 				9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */,
@@ -416,6 +431,7 @@
 				9EAD771E25D07001004D334E /* AuthorizationInteractor.swift in Sources */,
 				9EAD76D625D043BD004D334E /* AuthorizationViewController.swift in Sources */,
 				9EF8A97425CC5AFD00EE9AED /* AuthorizationManager.swift in Sources */,
+				9E24731525D1AF2A00D4AF9C /* UIImageViewExtension.swift in Sources */,
 				9EAD76E725D055A5004D334E /* AuthorizationCoordinator.swift in Sources */,
 				9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */,
 				9EAD771425D0616B004D334E /* LoginCoordinator.swift in Sources */,

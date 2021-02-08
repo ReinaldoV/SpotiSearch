@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="xf8-vc-dtq">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="xf8-vc-dtq" customClass="ResultCell" customModule="SpotiSearch" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xf8-vc-dtq" id="u1F-h1-F6C">
@@ -42,10 +42,13 @@
                             <constraint firstAttribute="height" constant="40" id="qEi-fi-TIJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                        <color key="tintColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.6588235294117647" green="0.23160009561699527" blue="0.36890205685070721" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal">
-                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                            <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
                         </state>
+                        <connections>
+                            <action selector="favoriteButtonAction:" destination="xf8-vc-dtq" eventType="touchUpInside" id="3iN-kl-Y6d"/>
+                        </connections>
                     </button>
                 </subviews>
                 <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -62,11 +65,17 @@
                     <constraint firstItem="CMU-53-tih" firstAttribute="top" secondItem="u1F-h1-F6C" secondAttribute="top" constant="15" id="hCL-3R-ra0"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionsLabel" destination="QK1-51-9mc" id="78U-OM-eD2"/>
+                <outlet property="elementLabel" destination="c5m-1m-eWb" id="gyB-26-zbM"/>
+                <outlet property="favoriteButton" destination="CMU-53-tih" id="FEJ-lr-U98"/>
+                <outlet property="resultImageView" destination="Ubn-sF-Z2g" id="fiJ-DN-vMm"/>
+            </connections>
             <point key="canvasLocation" x="-400.00000000000006" y="71.651785714285708"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="questionmark.square.dashed" catalog="system" width="128" height="114"/>
     </resources>
 </document>
