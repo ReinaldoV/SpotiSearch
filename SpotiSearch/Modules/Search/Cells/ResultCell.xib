@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -34,6 +35,18 @@
                         <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMU-53-tih">
+                        <rect key="frame" x="354" y="15" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="hnN-55-h6f"/>
+                            <constraint firstAttribute="height" constant="40" id="qEi-fi-TIJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                        <color key="tintColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <state key="normal">
+                            <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                        </state>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" red="0.078431372549019607" green="0.078431372549019607" blue="0.078431372549019607" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
@@ -44,12 +57,16 @@
                     <constraint firstItem="QK1-51-9mc" firstAttribute="leading" secondItem="c5m-1m-eWb" secondAttribute="leading" id="PJj-Ga-sW9"/>
                     <constraint firstItem="Ubn-sF-Z2g" firstAttribute="leading" secondItem="u1F-h1-F6C" secondAttribute="leading" constant="10" id="XdZ-2U-gpR"/>
                     <constraint firstItem="QK1-51-9mc" firstAttribute="top" secondItem="c5m-1m-eWb" secondAttribute="bottom" constant="-2" id="a6T-r7-wob"/>
+                    <constraint firstAttribute="bottom" secondItem="CMU-53-tih" secondAttribute="bottom" constant="15" id="dV8-FQ-gjs"/>
+                    <constraint firstAttribute="trailing" secondItem="CMU-53-tih" secondAttribute="trailing" constant="20" id="fyc-Aw-Sni"/>
+                    <constraint firstItem="CMU-53-tih" firstAttribute="top" secondItem="u1F-h1-F6C" secondAttribute="top" constant="15" id="hCL-3R-ra0"/>
                 </constraints>
             </tableViewCellContentView>
             <point key="canvasLocation" x="-400.00000000000006" y="71.651785714285708"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="heart" catalog="system" width="128" height="109"/>
         <image name="questionmark.square.dashed" catalog="system" width="128" height="114"/>
     </resources>
 </document>
