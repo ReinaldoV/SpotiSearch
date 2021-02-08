@@ -19,9 +19,19 @@ class SearchTypeCell: UICollectionViewCell {
     @IBOutlet weak var whiteBackgroundView: UIView!
     @IBOutlet weak var typeLabel: UILabel!
 
-    func configureCell(type: CellType, isSelected: Bool) {
+    func configureCell(type: CellType) {
         self.typeLabel.text = type.rawValue
-        isSelected ? self.setSelected() : self.setUnnselected()
+        self.setUnnselected()
+    }
+
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.setSelected()
+            } else {
+                self.setUnnselected()
+            }
+        }
     }
 
     override func layoutSubviews() {

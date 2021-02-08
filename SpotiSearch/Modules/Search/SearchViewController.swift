@@ -14,11 +14,22 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var resultsTableView: UITableView!
     let searchTypeCellIdentifier = "kSearchTypeCell"
     let resultCellIdentifier = "kResultCell"
+    var firstLoad = true
 
     override func viewDidLoad() {
         self.setupCollectionView()
         self.setupSearchBar()
         self.setupTableView()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if self.firstLoad {
+            let index = IndexPath(row: 0, section: 0)
+            self.typeCollectionView.selectItem(at: index, animated: false, scrollPosition: .left)
+            self.firstLoad = false
+        }
     }
 
     @IBAction func avatarButton(_ sender: Any) {
@@ -82,7 +93,7 @@ extension SearchViewController: UICollectionViewDataSource {
             return SearchTypeCell()
         }
 
-        typeCell.configureCell(type: SearchTypeCell.CellType.allCases[indexPath.row], isSelected: false)
+        typeCell.configureCell(type: SearchTypeCell.CellType.allCases[indexPath.row])
         return typeCell
     }
 }
@@ -108,6 +119,7 @@ extension SearchViewController: UITableViewDataSource {
                                     isFavorite: false,
                                     imageURL: nil)
         resultCell.configureCell(info: model)
+        resultCell.selectionStyle = .none
         return resultCell
     }
 }
