@@ -87,10 +87,14 @@ struct ArtistDTO: Codable {
     let name: String
 }
 
-struct ImageResultDTO: Codable {
+struct ImageResultDTO: Codable, Comparable {
     let height: Int
     let width: Int
     let url: URL?
+
+    static func < (lhs: ImageResultDTO, rhs: ImageResultDTO) -> Bool {
+        lhs.height < rhs.height
+    }
 }
 
 struct AlbumDTO: Codable {
