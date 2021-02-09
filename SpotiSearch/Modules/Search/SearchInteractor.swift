@@ -82,6 +82,7 @@ extension SearchInteractor: SearchInteractorProtocol {
     func logout() {
         self.searchItems = [SearchItem]()
         self.token = nil
+        self.favoriteItems = [SearchItem]()
         self.favoritesManager.deleteFavorites()
     }
 
