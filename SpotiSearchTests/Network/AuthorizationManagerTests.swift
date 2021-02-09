@@ -34,8 +34,7 @@ class AuthorizationManagerTests: XCTestCase {
     func testSutIsntNil() {
         XCTAssertNotNil(sut, "Sut must not be nil.")
     }
-
-    // MARK: - Test viewDidLoad
+    
     func testrequestAuthorizationURL() {
         let result = sut.requestAuthorizationURL()
         XCTAssertNotNil(result)

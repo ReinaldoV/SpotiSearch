@@ -40,7 +40,6 @@ class LoginCoordinatorTests: XCTestCase {
         XCTAssertNotNil(sut, "Sut must not be nil.")
     }
 
-    // MARK: - Test viewDidLoad
     func testAuthAccepted() {
         sut.authAccepted(authCode: "")
         XCTAssertTrue(delegateMock.authAcceptedWasCalled)
