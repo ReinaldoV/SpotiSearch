@@ -114,7 +114,23 @@ class SearchInteractorTests: XCTestCase {
     }
 
     func testLogout() {
+        let item = SearchItem(name: "",
+                              type: .album,
+                              id: "id",
+                              popularity: 0,
+                              imageURL: nil,
+                              artist: "",
+                              album: "")
+        sut.searchItems = [item]
+        sut.favoriteItems = [item]
+        sut.token = Token(accessToken: "", expiresIn: Date())
 
+        sut.logout()
+
+        XCTAssertTrue(favoritesManager.deleteFavoritesWasCalled)
+        XCTAssertTrue(sut.searchItems.isEmpty)
+        XCTAssertTrue(sut.favoriteItems.isEmpty)
+        XCTAssertNil(sut.token)
     }
 
     func testAddFavoriteOrDelete() {
@@ -138,6 +154,9 @@ class SearchManagerProtocolMock: SearchManagerProtocol {
 }
 
 class FavoritesManagerProtocolMock: FavoritesManagerProtocol {
+
+    var deleteFavoritesWasCalled = false
+
     func saveFavorites(favorites: [SearchItem]) {
 
     }
@@ -147,6 +166,6 @@ class FavoritesManagerProtocolMock: FavoritesManagerProtocol {
     }
 
     func deleteFavorites() {
-
+        deleteFavoritesWasCalled = true
     }
 }
