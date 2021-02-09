@@ -11,7 +11,7 @@ protocol SearchInteractorProtocol: class {
     func getToken(withRefreshToken refreshToken: String)
     func updateToken(withToken token: Token)
     func makeSearch(_ search: String?, oftype types: [SearchItemType])
-    func isFavorite(_ searchItem: SearchItem) -> Bool
+    func isFavorite(itemID: String) -> Bool
     func logout()
     func addFavorite(_ item: ResultCellModel)
 }
@@ -73,8 +73,8 @@ extension SearchInteractor: SearchInteractorProtocol {
                                   onError: nil)
     }
 
-    func isFavorite(_ searchItem: SearchItem) -> Bool {
-        return false //to be implemented
+    func isFavorite(itemID: String) -> Bool {
+        return self.favoriteItems.contains(where: { $0.id == itemID })
     }
 
     func logout() {

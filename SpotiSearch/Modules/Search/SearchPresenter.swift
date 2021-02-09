@@ -15,6 +15,8 @@ protocol SearchPresenterProtocol: class {
     func numberOfRows() -> Int
     func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel
     func requestSearch(withSearchString searchString: String?, andType type: SearchTypeCell.CellType?)
+    func addFavorites(itemOnIndex index: IndexPath)
+    func isFavorite(itemOnIndex index: IndexPath) -> Bool
 }
 
 class SearchPresenter {
@@ -29,7 +31,7 @@ class SearchPresenter {
 
     private func createViewModel(with items: [SearchItem]) -> [ResultCellModel] {
         return items.map { searchItem -> ResultCellModel in
-            let isFavorite = self.interactor.isFavorite(searchItem)
+            let isFavorite = self.interactor.isFavorite(itemID: searchItem.id)
             var description = ""
             if let artistName = searchItem.artist {
                 description = "\(artistName) · \(searchItem.type.stringValue())"
@@ -94,5 +96,15 @@ extension SearchPresenter: SearchPresenterProtocol {
         self.cellModels = [ResultCellModel]()
         self.interactor.logout()
         self.view?.reloadTable()
+    }
+
+    func addFavorites(itemOnIndex index: IndexPath) {
+        guard self.cellModels.count > index.row else { return }
+        self.interactor.addFavorite(self.cellModels[index.row])
+    }
+
+    func isFavorite(itemOnIndex index: IndexPath) -> Bool {
+        guard self.cellModels.count > index.row else { return false }
+        return self.interactor.isFavorite(itemID: self.cellModels[index.row].id)
     }
 }
