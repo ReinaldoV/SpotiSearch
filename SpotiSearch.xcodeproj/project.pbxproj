@@ -203,10 +203,10 @@
 		9E24737525D30E0A00D4AF9C /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				9E24737E25D3163600D4AF9C /* AuthorizationViewControllerTests.swift */,
-				9E24738225D316F900D4AF9C /* AuthorizationPresenterTests.swift */,
-				9E24738625D319B200D4AF9C /* AuthorizationInteractorTests.swift */,
 				9E24738A25D31C9300D4AF9C /* AuthorizationCoordinatorTests.swift */,
+				9E24738625D319B200D4AF9C /* AuthorizationInteractorTests.swift */,
+				9E24738225D316F900D4AF9C /* AuthorizationPresenterTests.swift */,
+				9E24737E25D3163600D4AF9C /* AuthorizationViewControllerTests.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
