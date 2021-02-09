@@ -65,9 +65,12 @@ class SearchManager {
 
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
+
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(String(describing: responseString))")
             do {
                 let resultDTO = try decoder.decode(ResponseResultDTO.self, from: data)
-                let combined = [resultDTO.albums, resultDTO.artists, resultDTO.tracks]
+                let combined = [resultDTO.albums?.items, resultDTO.artists?.items, resultDTO.tracks?.items]
                     .compactMap { $0 }
                     .flatMap({ $0 })
                 onSuccess(combined)
@@ -81,9 +84,13 @@ class SearchManager {
 }
 
 struct ResponseResultDTO: Codable {
-    let albums: [SearchResultDTO]?
-    let artists: [SearchResultDTO]?
-    let tracks: [SearchResultDTO]?
+    let albums: RootResponseDTO?
+    let artists: RootResponseDTO?
+    let tracks: RootResponseDTO?
+}
+
+struct RootResponseDTO: Codable {
+    let items: [SearchResultDTO]
 }
 
 struct SearchResultDTO: Codable {

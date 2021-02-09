@@ -50,6 +50,7 @@ extension SearchInteractor: SearchInteractorProtocol {
                                   withToken: validToken,
                                   onSuccess: { results in
                                       self.searchItems = results.map { SearchItem(withDTO: $0) }
+                                      self.presenter?.refreshSearchTable(withItems: self.searchItems)
                                       //Call to Presenter and update the view on main thread
                                   },
                                   onError: nil)
