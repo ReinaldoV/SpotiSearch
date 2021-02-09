@@ -38,6 +38,7 @@ class SearchViewController: UIViewController {
         self.setupSearchBar()
         self.setupTableView()
         self.searchBar.delegate = self
+        self.gestureRecognicerToHideKeyboard()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -101,6 +102,22 @@ class SearchViewController: UIViewController {
         }
         self.presenter?.requestSearch(withSearchString: searchString, andType: type)
     }
+
+    private func gestureRecognicerToHideKeyboard() {
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                       action: #selector(self.viewTapped(recognizer:)))
+        singleTap.numberOfTapsRequired = 1
+        singleTap.numberOfTouchesRequired = 1
+        singleTap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(singleTap)
+        self.view.isUserInteractionEnabled = true
+    }
+
+    @objc private func viewTapped(recognizer: UITapGestureRecognizer) {
+        if(recognizer.state == .ended) {
+            self.searchBar.resignFirstResponder()
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate {
@@ -152,6 +169,10 @@ extension SearchViewController: UITableViewDataSource {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.search()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
 
