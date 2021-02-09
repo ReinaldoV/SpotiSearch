@@ -16,6 +16,7 @@ enum KeychainError: Error {
 protocol KeychainManagerProtocol {
     func storeItem(code: String) throws
     func searchItem() throws -> String
+    func deleteItem() throws
 }
 
 class KeychainManager: KeychainManagerProtocol {
@@ -61,5 +62,14 @@ class KeychainManager: KeychainManagerProtocol {
             throw KeychainError.unexpectedPasswordData
         }
         return password
+    }
+
+    func deleteItem() throws {
+        let query: [String: Any] = [kSecClass as String: kSecClassInternetPassword,
+                                    kSecAttrServer as String: server]
+        let status = SecItemDelete(query as CFDictionary)
+        guard status == errSecSuccess || status == errSecItemNotFound else {
+            throw KeychainError.unhandledError(status: status)
+        }
     }
 }

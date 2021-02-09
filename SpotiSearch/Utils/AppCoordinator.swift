@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AppCoordinatorProtocol {
-
+    func logout()
 }
 
 protocol AuthorizationTokenRetrieverDelegate: class {
@@ -54,7 +54,16 @@ class AppCoordinator {
 }
 
 extension AppCoordinator: AppCoordinatorProtocol {
-
+    func logout() {
+        do {
+            try self.keychainManager.deleteItem()
+        } catch {
+            //error deleting refresh token
+        }
+        let coordinator = AuthorizationCoordinator(parentViewController: self.rootViewController ?? UIViewController(),
+                                                   tokenDelegate: self)
+        coordinator.start()
+    }
 }
 
 extension AppCoordinator: AuthorizationTokenRetrieverDelegate {

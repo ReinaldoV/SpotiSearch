@@ -52,6 +52,8 @@ class SearchViewController: UIViewController {
     }
 
     @IBAction func avatarButton(_ sender: Any) {
+        self.presenter?.logout()
+        self.coordinator?.logout()
     }
 
     private func setupSearchBar() {

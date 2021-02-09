@@ -8,6 +8,7 @@
 import UIKit
 
 protocol SearchPresenterProtocol: class {
+    func logout()
     func refreshSearchTable(withItems items: [SearchItem])
     func getToken(withRefreshToken refreshToken: String)
     func updateToken(withToken token: Token)
@@ -85,5 +86,11 @@ extension SearchPresenter: SearchPresenterProtocol {
             types = [.track, .artist, .album]
         }
         self.interactor.makeSearch(searchString, oftype: types)
+    }
+
+    func logout() {
+        self.cellModels = [ResultCellModel]()
+        self.interactor.logout()
+        self.view?.reloadTable()
     }
 }

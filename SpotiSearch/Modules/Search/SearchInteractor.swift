@@ -12,6 +12,7 @@ protocol SearchInteractorProtocol: class {
     func updateToken(withToken token: Token)
     func makeSearch(_ search: String?, oftype types: [SearchItemType])
     func isFavorite(_ searchItem: SearchItem) -> Bool
+    func logout()
 }
 
 class SearchInteractor {
@@ -68,5 +69,10 @@ extension SearchInteractor: SearchInteractorProtocol {
 
     func isFavorite(_ searchItem: SearchItem) -> Bool {
         return false //to be implemented
+    }
+
+    func logout() {
+        self.searchItems = [SearchItem]()
+        self.token = nil
     }
 }
