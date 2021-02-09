@@ -177,6 +177,13 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		9E24737425D30D6000D4AF9C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		9E5C749425CEA335008D5EF4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,7 +206,6 @@
 		9E5C74A425CEBDFE008D5EF4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */,
 				9E5C74A525CEBE05008D5EF4 /* Extensions */,
 				9E5C74AB25CEC24F008D5EF4 /* SecureData */,
 			);
@@ -250,6 +256,7 @@
 				9E5C74A425CEBDFE008D5EF4 /* Utils */,
 				9E5C749425CEA335008D5EF4 /* Modules */,
 				9EF8A96C25CC0DBF00EE9AED /* Network */,
+				9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */,
 				9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */,
 				9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */,
 				9EF8A94025CC0A6400EE9AED /* Assets.xcassets */,
@@ -262,6 +269,7 @@
 		9EF8A94D25CC0A6400EE9AED /* SpotiSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				9E24737425D30D6000D4AF9C /* Modules */,
 				9E24736625D30B0800D4AF9C /* Network */,
 				9EF8A95025CC0A6400EE9AED /* Info.plist */,
 			);
