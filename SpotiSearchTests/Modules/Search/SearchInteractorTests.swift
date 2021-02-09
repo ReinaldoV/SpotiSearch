@@ -196,7 +196,11 @@ class SearchManagerProtocolMock: SearchManagerProtocol {
         return nil
     }
 
-    func search(_ search: String, for categories: [SearchCategories], withToken token: String, onSuccess: @escaping ([SearchResultDTO]) -> Void, onError: ((Error?) -> Void)?) {
+    func search(_ search: String,
+                for categories: [SearchCategories],
+                withToken token: String,
+                onSuccess: @escaping ([SearchResultDTO]) -> Void,
+                onError: ((Error?) -> Void)?) {
         searchWasCalled = true
     }
 }
