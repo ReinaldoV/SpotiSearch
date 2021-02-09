@@ -36,7 +36,7 @@ class AuthorizationManagerTests: XCTestCase {
     }
 
     // MARK: - Test viewDidLoad
-    func testLoadViewSuccess() {
+    func testrequestAuthorizationURL() {
         let result = sut.requestAuthorizationURL()
         XCTAssertNotNil(result)
     }
