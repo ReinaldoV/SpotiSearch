@@ -117,11 +117,11 @@
 		9E17C33025D03A97008A1A50 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				9EAD76E625D055A5004D334E /* AuthorizationCoordinator.swift */,
+				9EAD771D25D07001004D334E /* AuthorizationInteractor.swift */,
+				9EAD771825D06FF7004D334E /* AuthorizationPresenter.swift */,
 				9EAD76D025D043BD004D334E /* AuthorizationViewController.swift */,
 				9EAD76DB25D043F4004D334E /* AuthorizationViewController.xib */,
-				9EAD76E625D055A5004D334E /* AuthorizationCoordinator.swift */,
-				9EAD771825D06FF7004D334E /* AuthorizationPresenter.swift */,
-				9EAD771D25D07001004D334E /* AuthorizationInteractor.swift */,
 				9EAD772225D07957004D334E /* Token.swift */,
 			);
 			path = Authorization;
@@ -130,13 +130,13 @@
 		9E2472E125D1791300D4AF9C /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9E24734925D2FB5800D4AF9C /* Views */,
-				9E24730E25D1AE4C00D4AF9C /* Models */,
 				9E2472EC25D1844200D4AF9C /* Cells */,
+				9E24730E25D1AE4C00D4AF9C /* Models */,
+				9E24732325D1CA2A00D4AF9C /* SearchInteractor.swift */,
+				9E24731E25D1CA2100D4AF9C /* SearchPresenter.swift */,
 				9E2472E225D17DE500D4AF9C /* SearchViewController.swift */,
 				9E2472E725D17DF700D4AF9C /* SearchViewController.xib */,
-				9E24731E25D1CA2100D4AF9C /* SearchPresenter.swift */,
-				9E24732325D1CA2A00D4AF9C /* SearchInteractor.swift */,
+				9E24734925D2FB5800D4AF9C /* Views */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -144,10 +144,10 @@
 		9E2472EC25D1844200D4AF9C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				9E2472ED25D1846E00D4AF9C /* SearchTypeCell.xib */,
-				9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */,
 				9E24730425D1A4ED00D4AF9C /* ResultCell.swift */,
 				9E24730925D1A4FB00D4AF9C /* ResultCell.xib */,
+				9E2472F225D1867B00D4AF9C /* SearchTypeCell.swift */,
+				9E2472ED25D1846E00D4AF9C /* SearchTypeCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -180,9 +180,9 @@
 		9E5C749425CEA335008D5EF4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				9E2472E125D1791300D4AF9C /* Search */,
 				9E17C33025D03A97008A1A50 /* Authorization */,
 				9E5C749525CEA348008D5EF4 /* Login */,
+				9E2472E125D1791300D4AF9C /* Search */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -190,8 +190,8 @@
 		9E5C749525CEA348008D5EF4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */,
 				9EAD771325D0616B004D334E /* LoginCoordinator.swift */,
+				9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -199,9 +199,9 @@
 		9E5C74A425CEBDFE008D5EF4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				9E5C74AB25CEC24F008D5EF4 /* SecureData */,
-				9E5C74A525CEBE05008D5EF4 /* Extensions */,
 				9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */,
+				9E5C74A525CEBE05008D5EF4 /* Extensions */,
+				9E5C74AB25CEC24F008D5EF4 /* SecureData */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,11 +209,11 @@
 		9E5C74A525CEBE05008D5EF4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */,
-				9E5C74B625CEDE1A008D5EF4 /* URLComponents.swift */,
-				9E5C74BB25CEE221008D5EF4 /* Dictionary.swift */,
 				9E5C74C025CEE286008D5EF4 /* CharacterSet.swift */,
+				9E5C74BB25CEE221008D5EF4 /* Dictionary.swift */,
 				9E24731425D1AF2A00D4AF9C /* UIImageViewExtension.swift */,
+				9E5C74B625CEDE1A008D5EF4 /* URLComponents.swift */,
+				9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,9 +272,9 @@
 			isa = PBXGroup;
 			children = (
 				9EF8A97325CC5AFD00EE9AED /* AuthorizationManager.swift */,
-				9E5C74B125CEDC73008D5EF4 /* TokenManager.swift */,
-				9E5C754125CF023C008D5EF4 /* SearchManager.swift */,
 				9E24733E25D2E44500D4AF9C /* FavoritesManager.swift */,
+				9E5C754125CF023C008D5EF4 /* SearchManager.swift */,
+				9E5C74B125CEDC73008D5EF4 /* TokenManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
