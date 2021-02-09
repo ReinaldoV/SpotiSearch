@@ -6,8 +6,8 @@
 //
 
 protocol SearchInteractorProtocol: class {
-
     func getToken(withRefreshToken refreshToken: String)
+    func updateToken(withToken token: Token)
     func makeSearch(_ search: String, oftype types: [SearchItemType])
 }
 
@@ -33,9 +33,14 @@ extension SearchInteractor: SearchInteractorProtocol {
     func getToken(withRefreshToken refreshToken: String) {
         self.tokenManager.refreshToken(token: refreshToken) { tokenDTO in
             self.token = Token(tokenDTO: tokenDTO)
+            //update refreshToken on keychain
         } onError: { error in
             //Handle errors
         }
+    }
+
+    func updateToken(withToken token: Token) {
+        self.token = token
     }
 
     func makeSearch(_ search: String, oftype types: [SearchItemType]) {

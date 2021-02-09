@@ -8,7 +8,8 @@
 import UIKit
 
 protocol SearchViewControllerProtocol: UIViewController {
-
+    func recieveNewToken(_ token: Token)
+    func getNewToken(withRefreshToken refreshToken: String)
 }
 
 class SearchViewController: UIViewController {
@@ -140,5 +141,11 @@ extension SearchViewController: UITableViewDataSource {
 }
 
 extension SearchViewController: SearchViewControllerProtocol {
+    func recieveNewToken(_ token: Token) {
+        self.presenter?.updateToken(withToken: token)
+    }
 
+    func getNewToken(withRefreshToken refreshToken: String) {
+        self.presenter?.getToken(withRefreshToken: refreshToken)
+    }
 }

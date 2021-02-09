@@ -11,6 +11,10 @@ protocol AppCoordinatorProtocol {
 
 }
 
+protocol AuthorizationTokenRetrieverDelegate: class {
+    func newTokenRecived(token: Token)
+}
+
 class AppCoordinator {
 
     let window: UIWindow
@@ -25,18 +29,19 @@ class AppCoordinator {
     func start() {
         do {
             let refreshToken = try self.keychainManager.searchItem()
-            self.showSearchModule(withToken: nil, refreshToken: refreshToken)
+            self.showSearchModule()
+            self.rootViewController?.getNewToken(withRefreshToken: refreshToken)
         } catch {
-            self.showSearchModule(withToken: nil, refreshToken: nil)
-            let coordinator = AuthorizationCoordinator(parentViewController: self.rootViewController ?? UIViewController())
+            self.showSearchModule()
+            let coordinator = AuthorizationCoordinator(parentViewController: self.rootViewController ?? UIViewController(),
+                                                       tokenDelegate: self)
             coordinator.start()
         }
     }
 
-    private func showSearchModule(withToken: Token?, refreshToken: String?) {
+    private func showSearchModule() {
         let interactor = SearchInteractor(tokenManager: TokenManager(),
-                                          searchManager: SearchManager(),
-                                          token: withToken)
+                                          searchManager: SearchManager())
         let presenter = SearchPresenter(interactor: interactor)
         let view = SearchViewController.instantiate(presenter: presenter, coordinator: self)
         interactor.presenter = presenter
@@ -45,12 +50,15 @@ class AppCoordinator {
 
         let navigation = UINavigationController(rootViewController: view)
         self.window.rootViewController = navigation
-        if let refresh = refreshToken {
-            interactor.getToken(withRefreshToken: refresh)
-        }
     }
 }
 
 extension AppCoordinator: AppCoordinatorProtocol {
 
+}
+
+extension AppCoordinator: AuthorizationTokenRetrieverDelegate {
+    func newTokenRecived(token: Token) {
+        self.rootViewController?.recieveNewToken(token)
+    }
 }

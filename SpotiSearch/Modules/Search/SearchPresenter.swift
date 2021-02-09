@@ -7,6 +7,8 @@
 
 protocol SearchPresenterProtocol: class {
     func refreshSearchTable(withItems items: [SearchItem])
+    func getToken(withRefreshToken refreshToken: String)
+    func updateToken(withToken token: Token)
 }
 
 class SearchPresenter {
@@ -24,5 +26,13 @@ extension SearchPresenter: SearchPresenterProtocol {
     func refreshSearchTable(withItems items: [SearchItem]) {
         let orderedItemsByPopularity = items.sorted { $0.popularity > $1.popularity }
 
+    }
+
+    func getToken(withRefreshToken refreshToken: String) {
+        self.interactor.getToken(withRefreshToken: refreshToken)
+    }
+
+    func updateToken(withToken token: Token) {
+        self.interactor.updateToken(withToken: token)
     }
 }

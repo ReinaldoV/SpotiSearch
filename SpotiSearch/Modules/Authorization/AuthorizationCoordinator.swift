@@ -9,6 +9,7 @@ import UIKit
 
 protocol AuthorizationCoordinatorProtocol {
     func openLoginWebViewController(view: UIViewController)
+    func recieveTokenFromAuth(token: Token)
 }
 
 protocol AuthorizationCompleteDelegate: class {
@@ -20,11 +21,15 @@ class AuthorizationCoordinator {
 
     let parent: UIViewController
     let authManager: AuthorizationManagerProtocol
+    private weak var tokenDelegate: AuthorizationTokenRetrieverDelegate?
     private weak var authViewController: AuthorizationViewControllerProtocol?
 
+
     init(parentViewController: UIViewController,
+         tokenDelegate: AuthorizationTokenRetrieverDelegate,
          authorizationManager: AuthorizationManagerProtocol = AuthorizationManager()) {
         self.parent = parentViewController
+        self.tokenDelegate = tokenDelegate
         self.authManager = authorizationManager
     }
 
@@ -53,9 +58,12 @@ class AuthorizationCoordinator {
 }
 
 extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
-
     func openLoginWebViewController(view: UIViewController) {
         self.showLoginViewControler(view: view)
+    }
+
+    func recieveTokenFromAuth(token: Token) {
+        self.tokenDelegate?.newTokenRecived(token: token)
     }
 }
 
