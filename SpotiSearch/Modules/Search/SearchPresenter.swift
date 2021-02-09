@@ -13,6 +13,7 @@ protocol SearchPresenterProtocol: class {
     func updateToken(withToken token: Token)
     func numberOfRows() -> Int
     func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel
+    func requestSearch(withSearchString: String?, andType type: SearchTypeCell.CellType?)
 }
 
 class SearchPresenter {
@@ -67,5 +68,9 @@ extension SearchPresenter: SearchPresenterProtocol {
                                                                                   isFavorite: false,
                                                                                   imageURL: nil) }
         return self.cellModels[indexPath.row]
+    }
+
+    func requestSearch(withSearchString: String?, andType type: SearchTypeCell.CellType?) {
+        
     }
 }

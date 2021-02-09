@@ -37,6 +37,7 @@ class SearchViewController: UIViewController {
         self.setupCollectionView()
         self.setupSearchBar()
         self.setupTableView()
+        self.searchBar.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -90,11 +91,21 @@ class SearchViewController: UIViewController {
         tableView.backgroundColor = UIColor.clear
         tableView.separatorStyle = .none
     }
+
+    private func search() {
+        let searchString = searchBar.text
+        var type: SearchTypeCell.CellType?
+        if let selectedCellIndex = self.typeCollectionView.visibleCells.firstIndex(where: { $0.isSelected }),
+            SearchTypeCell.CellType.allCases.count > selectedCellIndex {
+            type = SearchTypeCell.CellType.allCases[selectedCellIndex]
+        }
+        self.presenter?.requestSearch(withSearchString: searchString, andType: type)
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //to implement
+        self.search()
     }
 }
 
@@ -135,6 +146,12 @@ extension SearchViewController: UITableViewDataSource {
         resultCell.configureCell(info: model)
         resultCell.selectionStyle = .none
         return resultCell
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.search()
     }
 }
 
