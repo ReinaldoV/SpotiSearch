@@ -52,13 +52,6 @@
 			remoteGlobalIDString = 9EF8A93325CC0A6300EE9AED;
 			remoteInfo = SpotiSearch;
 		};
-		9EF8A95625CC0A6400EE9AED /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9EF8A92C25CC0A6300EE9AED /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9EF8A93325CC0A6300EE9AED;
-			remoteInfo = SpotiSearch;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -100,7 +93,6 @@
 		9EF8A94525CC0A6400EE9AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EF8A94A25CC0A6400EE9AED /* SpotiSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotiSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF8A95025CC0A6400EE9AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9EF8A95525CC0A6400EE9AED /* SpotiSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotiSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF8A97325CC5AFD00EE9AED /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,13 +105,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9EF8A94725CC0A6400EE9AED /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9EF8A95225CC0A6400EE9AED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -255,7 +240,6 @@
 			children = (
 				9EF8A93425CC0A6300EE9AED /* SpotiSearch.app */,
 				9EF8A94A25CC0A6400EE9AED /* SpotiSearchTests.xctest */,
-				9EF8A95525CC0A6400EE9AED /* SpotiSearchUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,24 +317,6 @@
 			productReference = 9EF8A94A25CC0A6400EE9AED /* SpotiSearchTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		9EF8A95425CC0A6400EE9AED /* SpotiSearchUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9EF8A96425CC0A6400EE9AED /* Build configuration list for PBXNativeTarget "SpotiSearchUITests" */;
-			buildPhases = (
-				9EF8A95125CC0A6400EE9AED /* Sources */,
-				9EF8A95225CC0A6400EE9AED /* Frameworks */,
-				9EF8A95325CC0A6400EE9AED /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9EF8A95725CC0A6400EE9AED /* PBXTargetDependency */,
-			);
-			name = SpotiSearchUITests;
-			productName = SpotiSearchUITests;
-			productReference = 9EF8A95525CC0A6400EE9AED /* SpotiSearchUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,10 +332,6 @@
 					9EF8A94925CC0A6400EE9AED = {
 						CreatedOnToolsVersion = 12.4;
 						LastSwiftMigration = 1240;
-						TestTargetID = 9EF8A93325CC0A6300EE9AED;
-					};
-					9EF8A95425CC0A6400EE9AED = {
-						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 9EF8A93325CC0A6300EE9AED;
 					};
 				};
@@ -389,7 +351,6 @@
 			targets = (
 				9EF8A93325CC0A6300EE9AED /* SpotiSearch */,
 				9EF8A94925CC0A6400EE9AED /* SpotiSearchTests */,
-				9EF8A95425CC0A6400EE9AED /* SpotiSearchUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -410,13 +371,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9EF8A94825CC0A6400EE9AED /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9EF8A95325CC0A6400EE9AED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -468,13 +422,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9EF8A95125CC0A6400EE9AED /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -482,11 +429,6 @@
 			isa = PBXTargetDependency;
 			target = 9EF8A93325CC0A6300EE9AED /* SpotiSearch */;
 			targetProxy = 9EF8A94B25CC0A6400EE9AED /* PBXContainerItemProxy */;
-		};
-		9EF8A95725CC0A6400EE9AED /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9EF8A93325CC0A6300EE9AED /* SpotiSearch */;
-			targetProxy = 9EF8A95625CC0A6400EE9AED /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -673,7 +615,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = reinaldovillajavi.SpotiSearchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpotiSearchTests/Network/SpotiSearchTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -698,50 +640,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = reinaldovillajavi.SpotiSearchTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "SpotiSearchTests/Network/SpotiSearchTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpotiSearch.app/SpotiSearch";
-			};
-			name = Release;
-		};
-		9EF8A96525CC0A6400EE9AED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KHMPSR3FEL;
-				INFOPLIST_FILE = SpotiSearchUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = reinaldovillajavi.SpotiSearchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SpotiSearch;
-			};
-			name = Debug;
-		};
-		9EF8A96625CC0A6400EE9AED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = KHMPSR3FEL;
-				INFOPLIST_FILE = SpotiSearchUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = reinaldovillajavi.SpotiSearchUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SpotiSearch;
 			};
 			name = Release;
 		};
@@ -771,15 +673,6 @@
 			buildConfigurations = (
 				9EF8A96225CC0A6400EE9AED /* Debug */,
 				9EF8A96325CC0A6400EE9AED /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		9EF8A96425CC0A6400EE9AED /* Build configuration list for PBXNativeTarget "SpotiSearchUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9EF8A96525CC0A6400EE9AED /* Debug */,
-				9EF8A96625CC0A6400EE9AED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

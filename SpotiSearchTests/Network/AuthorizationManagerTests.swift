@@ -5,4 +5,39 @@
 //  Created by Reinaldo Villanueva Javierre on 9/2/21.
 //
 
-import Foundation
+import XCTest
+@testable import SpotiSearch
+
+class AuthorizationManagerTests: XCTestCase {
+
+    var sut: AuthorizationManager!
+
+    override func setUp() {
+        super.setUp()
+        createSut()
+    }
+
+    override func tearDown() {
+        releaseSut()
+        super.tearDown()
+    }
+
+    func createSut() {
+        sut = AuthorizationManager()
+    }
+
+    func releaseSut() {
+        sut = nil
+    }
+
+    // MARK: - Basic test.
+    func testSutIsntNil() {
+        XCTAssertNotNil(sut, "Sut must not be nil.")
+    }
+
+    // MARK: - Test viewDidLoad
+    func testLoadViewSuccess() {
+        let result = sut.requestAuthorizationURL()
+        XCTAssertNotNil(result)
+    }
+}
