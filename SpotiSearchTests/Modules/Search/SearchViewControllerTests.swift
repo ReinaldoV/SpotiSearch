@@ -47,9 +47,23 @@ class SearchViewControllerTests: XCTestCase {
         _ = sut.view
         sut.viewWillAppear(true)
     }
+
+    func testRecieveNewToken() {
+        sut.recieveNewToken(Token(accessToken: "", expiresIn: Date()))
+        XCTAssertTrue(searchPresenterProtocolMock.updateTokenWasCalled)
+    }
+
+    func testGetNewToken() {
+        sut.getNewToken(withRefreshToken: "")
+        XCTAssertTrue(searchPresenterProtocolMock.getTokenWasCalled)
+    }
 }
 
 class SearchPresenterProtocolMock: SearchPresenterProtocol {
+
+    var updateTokenWasCalled = false
+    var getTokenWasCalled = false
+
     func logout() {
 
     }
@@ -59,11 +73,11 @@ class SearchPresenterProtocolMock: SearchPresenterProtocol {
     }
 
     func getToken(withRefreshToken refreshToken: String) {
-
+        getTokenWasCalled = true
     }
 
     func updateToken(withToken token: Token) {
-
+        updateTokenWasCalled = true
     }
 
     func numberOfRows() -> Int {
