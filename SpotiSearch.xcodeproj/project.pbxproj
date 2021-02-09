@@ -20,6 +20,8 @@
 		9E24732925D1CAD900D4AF9C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */; };
 		9E24733425D1EA4900D4AF9C /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24733325D1EA4900D4AF9C /* SearchItem.swift */; };
 		9E24733F25D2E44500D4AF9C /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24733E25D2E44500D4AF9C /* FavoritesManager.swift */; };
+		9E24734B25D2FB9000D4AF9C /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24734A25D2FB9000D4AF9C /* EmptyTableView.swift */; };
+		9E24735325D2FBA400D4AF9C /* EmptyTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E24735225D2FBA400D4AF9C /* EmptyTableView.xib */; };
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
 		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9E5C74AD25CEC263008D5EF4 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */; };
@@ -77,6 +79,8 @@
 		9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9E24733325D1EA4900D4AF9C /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
 		9E24733E25D2E44500D4AF9C /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
+		9E24734A25D2FB9000D4AF9C /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
+		9E24735225D2FBA400D4AF9C /* EmptyTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyTableView.xib; sourceTree = "<group>"; };
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		9E2472E125D1791300D4AF9C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				9E24734925D2FB5800D4AF9C /* Views */,
 				9E24730E25D1AE4C00D4AF9C /* Models */,
 				9E2472EC25D1844200D4AF9C /* Cells */,
 				9E2472E225D17DE500D4AF9C /* SearchViewController.swift */,
@@ -178,6 +183,15 @@
 				9E24733325D1EA4900D4AF9C /* SearchItem.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		9E24734925D2FB5800D4AF9C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E24734A25D2FB9000D4AF9C /* EmptyTableView.swift */,
+				9E24735225D2FBA400D4AF9C /* EmptyTableView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9E5C749425CEA335008D5EF4 /* Modules */ = {
@@ -403,6 +417,7 @@
 				9E24730A25D1A4FB00D4AF9C /* ResultCell.xib in Resources */,
 				9EF8A94125CC0A6400EE9AED /* Assets.xcassets in Resources */,
 				9E2472EE25D1846E00D4AF9C /* SearchTypeCell.xib in Resources */,
+				9E24735325D2FBA400D4AF9C /* EmptyTableView.xib in Resources */,
 				9E2472E825D17DF700D4AF9C /* SearchViewController.xib in Resources */,
 				9EF8A93F25CC0A6300EE9AED /* Main.storyboard in Resources */,
 			);
@@ -436,6 +451,7 @@
 				9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */,
 				9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */,
 				9E24732925D1CAD900D4AF9C /* AppCoordinator.swift in Sources */,
+				9E24734B25D2FB9000D4AF9C /* EmptyTableView.swift in Sources */,
 				9E24730525D1A4ED00D4AF9C /* ResultCell.swift in Sources */,
 				9E24731F25D1CA2100D4AF9C /* SearchPresenter.swift in Sources */,
 				9E24731025D1AE5F00D4AF9C /* ResultCellModel.swift in Sources */,

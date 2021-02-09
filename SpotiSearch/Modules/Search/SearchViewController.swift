@@ -11,6 +11,8 @@ protocol SearchViewControllerProtocol: UIViewController {
     func recieveNewToken(_ token: Token)
     func getNewToken(withRefreshToken refreshToken: String)
     func reloadTable()
+    func addEmptySearchView()
+    func deleteEmptySearchView()
 }
 
 class SearchViewController: UIViewController {
@@ -122,7 +124,7 @@ class SearchViewController: UIViewController {
         }
     }
 
-    @objc func favoriteButtonTap(sender: UIButton){
+    @objc func favoriteButtonTap(sender: UIButton) {
         let buttonTag = sender.tag
         self.presenter?.addFavorites(itemOnIndex: buttonTag)
     }
@@ -200,5 +202,15 @@ extension SearchViewController: SearchViewControllerProtocol {
         if !self.resultsTableView.visibleCells.isEmpty {
             self.resultsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
         }
+    }
+
+    func addEmptySearchView() {
+        if let emptyView = Bundle.main.loadNibNamed("EmptyTableView", owner: self, options: nil)?[0] as? UIView {
+            self.resultsTableView.backgroundView = emptyView
+        }
+    }
+
+    func deleteEmptySearchView() {
+        self.resultsTableView.backgroundView = nil
     }
 }

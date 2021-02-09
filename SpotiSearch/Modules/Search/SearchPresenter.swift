@@ -63,7 +63,13 @@ extension SearchPresenter: SearchPresenterProtocol {
     }
 
     func numberOfRows() -> Int {
-        return self.cellModels.count
+        let numberOfRows = self.cellModels.count
+        if numberOfRows == 0 {
+            self.view?.addEmptySearchView()
+        } else {
+            self.view?.deleteEmptySearchView()
+        }
+        return numberOfRows
     }
 
     func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel {
