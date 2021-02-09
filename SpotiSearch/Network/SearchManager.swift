@@ -66,8 +66,6 @@ class SearchManager {
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
 
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(String(describing: responseString))")
             do {
                 let resultDTO = try decoder.decode(ResponseResultDTO.self, from: data)
                 let combined = [resultDTO.albums?.items, resultDTO.artists?.items, resultDTO.tracks?.items]
