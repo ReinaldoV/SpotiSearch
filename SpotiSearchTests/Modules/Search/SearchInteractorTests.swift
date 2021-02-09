@@ -133,8 +133,56 @@ class SearchInteractorTests: XCTestCase {
         XCTAssertNil(sut.token)
     }
 
-    func testAddFavoriteOrDelete() {
+    func testAddFavoriteOrDeleteDeleteCase() {
+        let id = "id"
+        sut.favoriteItems = [SearchItem(name: "",
+                                        type: .album,
+                                        id: id,
+                                        popularity: 0,
+                                        imageURL: nil,
+                                        artist: "",
+                                        album: "")]
+        sut.addFavoriteOrDelete(ResultCellModel(id: id,
+                                                name: "",
+                                                description: "",
+                                                isFavorite: false,
+                                                imageURL: nil))
 
+        XCTAssertTrue(favoritesManager.deleteFavoritesWasCalled)
+        XCTAssertTrue(favoritesManager.saveFavoritesWasCalled)
+        XCTAssertTrue(presenterMock.refreshSearchTableWasCalled)
+    }
+
+    func testAddFavoriteOrDeleteInsertCase() {
+        let id = "id"
+        sut.searchItems = [SearchItem(name: "",
+                                      type: .album,
+                                      id: id,
+                                      popularity: 0,
+                                      imageURL: nil,
+                                      artist: "",
+                                      album: "")]
+        sut.addFavoriteOrDelete(ResultCellModel(id: id,
+                                                name: "",
+                                                description: "",
+                                                isFavorite: false,
+                                                imageURL: nil))
+
+        XCTAssertTrue(favoritesManager.deleteFavoritesWasCalled)
+        XCTAssertTrue(favoritesManager.saveFavoritesWasCalled)
+        XCTAssertFalse(presenterMock.refreshSearchTableWasCalled)
+    }
+
+    func testAddFavoriteOrDeleteEmpty() {
+        sut.addFavoriteOrDelete(ResultCellModel(id: "id",
+                                                name: "",
+                                                description: "",
+                                                isFavorite: false,
+                                                imageURL: nil))
+
+        XCTAssertFalse(favoritesManager.deleteFavoritesWasCalled)
+        XCTAssertFalse(favoritesManager.saveFavoritesWasCalled)
+        XCTAssertFalse(presenterMock.refreshSearchTableWasCalled)
     }
 }
 
@@ -156,9 +204,10 @@ class SearchManagerProtocolMock: SearchManagerProtocol {
 class FavoritesManagerProtocolMock: FavoritesManagerProtocol {
 
     var deleteFavoritesWasCalled = false
+    var saveFavoritesWasCalled = false
 
     func saveFavorites(favorites: [SearchItem]) {
-
+        saveFavoritesWasCalled = true
     }
 
     func loadFavorites() -> [SearchItem] {
