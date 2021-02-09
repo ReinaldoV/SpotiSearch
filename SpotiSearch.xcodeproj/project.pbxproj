@@ -25,6 +25,7 @@
 		9E24737925D30E3700D4AF9C /* LoginCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24737825D30E3700D4AF9C /* LoginCoordinatorTests.swift */; };
 		9E24737F25D3163600D4AF9C /* AuthorizationViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24737E25D3163600D4AF9C /* AuthorizationViewControllerTests.swift */; };
 		9E24738325D316F900D4AF9C /* AuthorizationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24738225D316F900D4AF9C /* AuthorizationPresenterTests.swift */; };
+		9E24738725D319B200D4AF9C /* AuthorizationInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24738625D319B200D4AF9C /* AuthorizationInteractorTests.swift */; };
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
 		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9E5C74AD25CEC263008D5EF4 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */; };
@@ -76,6 +77,7 @@
 		9E24737825D30E3700D4AF9C /* LoginCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinatorTests.swift; sourceTree = "<group>"; };
 		9E24737E25D3163600D4AF9C /* AuthorizationViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewControllerTests.swift; sourceTree = "<group>"; };
 		9E24738225D316F900D4AF9C /* AuthorizationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenterTests.swift; sourceTree = "<group>"; };
+		9E24738625D319B200D4AF9C /* AuthorizationInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractorTests.swift; sourceTree = "<group>"; };
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				9E24737E25D3163600D4AF9C /* AuthorizationViewControllerTests.swift */,
 				9E24738225D316F900D4AF9C /* AuthorizationPresenterTests.swift */,
+				9E24738625D319B200D4AF9C /* AuthorizationInteractorTests.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E24738725D319B200D4AF9C /* AuthorizationInteractorTests.swift in Sources */,
 				9E24738325D316F900D4AF9C /* AuthorizationPresenterTests.swift in Sources */,
 				9E24737925D30E3700D4AF9C /* LoginCoordinatorTests.swift in Sources */,
 				9E24736925D30B3500D4AF9C /* AuthorizationManagerTests.swift in Sources */,
