@@ -36,7 +36,8 @@ class SearchPresenter {
             } else {
                 description = searchItem.type.stringValue()
             }
-            return ResultCellModel(name: searchItem.name,
+            return ResultCellModel(id: searchItem.id,
+                                   name: searchItem.name,
                                    description: description,
                                    isFavorite: isFavorite,
                                    imageURL: searchItem.imageURL)
@@ -64,7 +65,8 @@ extension SearchPresenter: SearchPresenterProtocol {
     }
 
     func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel {
-        guard self.cellModels.count > indexPath.row else { return ResultCellModel(name: "",
+        guard self.cellModels.count > indexPath.row else { return ResultCellModel(id: "",
+                                                                                  name: "",
                                                                                   description: "",
                                                                                   isFavorite: false,
                                                                                   imageURL: nil) }

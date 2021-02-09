@@ -13,22 +13,28 @@ protocol SearchInteractorProtocol: class {
     func makeSearch(_ search: String?, oftype types: [SearchItemType])
     func isFavorite(_ searchItem: SearchItem) -> Bool
     func logout()
+    func addFavorite(_ item: ResultCellModel)
 }
 
 class SearchInteractor {
 
     let tokenManager: TokenManager
     let searchManager: SearchManager
+    let favoritesManager: FavoritesManager
     var searchItems = [SearchItem]()
+    var favoriteItems = [SearchItem]()
     var token: Token?
     weak var presenter: SearchPresenterProtocol?
 
     init(tokenManager: TokenManager,
          searchManager: SearchManager,
+         favoritesManager: FavoritesManager,
          token: Token? = nil) {
         self.tokenManager = tokenManager
         self.searchManager = searchManager
+        self.favoritesManager = favoritesManager
         self.token = token
+        self.favoriteItems = self.favoritesManager.loadFavorites()
     }
 }
 
@@ -74,5 +80,13 @@ extension SearchInteractor: SearchInteractorProtocol {
     func logout() {
         self.searchItems = [SearchItem]()
         self.token = nil
+        self.favoritesManager.deleteFavorites()
+    }
+
+    func addFavorite(_ item: ResultCellModel) {
+        guard let searchItem = self.searchItems.first(where: { $0.id == item.id }) else { return }
+        self.favoriteItems.append(searchItem)
+        self.favoritesManager.deleteFavorites()
+        self.favoritesManager.saveFavorites(favorites: self.favoriteItems)
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 struct ResultCellModel {
+    let id: String
     let name: String
     let description: String
     let isFavorite: Bool

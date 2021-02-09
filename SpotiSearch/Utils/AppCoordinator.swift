@@ -41,7 +41,8 @@ class AppCoordinator {
 
     private func showSearchModule() {
         let interactor = SearchInteractor(tokenManager: TokenManager(),
-                                          searchManager: SearchManager())
+                                          searchManager: SearchManager(),
+                                          favoritesManager: FavoritesManager())
         let presenter = SearchPresenter(interactor: interactor)
         let view = SearchViewController.instantiate(presenter: presenter, coordinator: self)
         interactor.presenter = presenter

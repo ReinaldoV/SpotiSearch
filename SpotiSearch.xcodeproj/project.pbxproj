@@ -19,6 +19,7 @@
 		9E24732425D1CA2A00D4AF9C /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24732325D1CA2A00D4AF9C /* SearchInteractor.swift */; };
 		9E24732925D1CAD900D4AF9C /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */; };
 		9E24733425D1EA4900D4AF9C /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24733325D1EA4900D4AF9C /* SearchItem.swift */; };
+		9E24733F25D2E44500D4AF9C /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24733E25D2E44500D4AF9C /* FavoritesManager.swift */; };
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
 		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9E5C74AD25CEC263008D5EF4 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */; };
@@ -75,6 +76,7 @@
 		9E24732325D1CA2A00D4AF9C /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		9E24732825D1CAD900D4AF9C /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9E24733325D1EA4900D4AF9C /* SearchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItem.swift; sourceTree = "<group>"; };
+		9E24733E25D2E44500D4AF9C /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				9EF8A97325CC5AFD00EE9AED /* AuthorizationManager.swift */,
 				9E5C74B125CEDC73008D5EF4 /* TokenManager.swift */,
 				9E5C754125CF023C008D5EF4 /* SearchManager.swift */,
+				9E24733E25D2E44500D4AF9C /* FavoritesManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				9EAD771925D06FF7004D334E /* AuthorizationPresenter.swift in Sources */,
 				9E5C74B725CEDE1A008D5EF4 /* URLComponents.swift in Sources */,
 				9E5C74BC25CEE221008D5EF4 /* Dictionary.swift in Sources */,
+				9E24733F25D2E44500D4AF9C /* FavoritesManager.swift in Sources */,
 				9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */,
 				9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */,
 				9E24732925D1CAD900D4AF9C /* AppCoordinator.swift in Sources */,
