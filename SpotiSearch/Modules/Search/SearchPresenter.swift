@@ -15,7 +15,7 @@ protocol SearchPresenterProtocol: class {
     func numberOfRows() -> Int
     func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel
     func requestSearch(withSearchString searchString: String?, andType type: SearchTypeCell.CellType?)
-    func addFavorites(itemOnIndex index: IndexPath)
+    func addFavorites(itemOnIndex index: Int)
     func isFavorite(itemOnIndex index: IndexPath) -> Bool
 }
 
@@ -98,9 +98,9 @@ extension SearchPresenter: SearchPresenterProtocol {
         self.view?.reloadTable()
     }
 
-    func addFavorites(itemOnIndex index: IndexPath) {
-        guard self.cellModels.count > index.row else { return }
-        self.interactor.addFavorite(self.cellModels[index.row])
+    func addFavorites(itemOnIndex index: Int) {
+        guard self.cellModels.count > index else { return }
+        self.interactor.addFavorite(self.cellModels[index])
     }
 
     func isFavorite(itemOnIndex index: IndexPath) -> Bool {

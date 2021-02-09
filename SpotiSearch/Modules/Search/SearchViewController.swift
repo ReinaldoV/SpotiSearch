@@ -120,6 +120,11 @@ class SearchViewController: UIViewController {
             self.searchBar.resignFirstResponder()
         }
     }
+
+    @objc func favoriteButtonTap(sender: UIButton){
+        let buttonTag = sender.tag
+        self.presenter?.addFavorites(itemOnIndex: buttonTag)
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate {
@@ -164,6 +169,8 @@ extension SearchViewController: UITableViewDataSource {
         }
         resultCell.configureCell(info: model)
         resultCell.selectionStyle = .none
+        resultCell.favoriteButton.addTarget(self, action: #selector(favoriteButtonTap(sender:)), for: .touchUpInside)
+        resultCell.favoriteButton.tag = indexPath.row
         return resultCell
     }
 }

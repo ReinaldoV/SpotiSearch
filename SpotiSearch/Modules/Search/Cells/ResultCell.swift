@@ -14,11 +14,14 @@ class ResultCell: UITableViewCell {
     @IBOutlet weak var descriptionsLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
 
+    var isFavorite = false
+
     func configureCell(info: ResultCellModel) {
         self.resultImageView.load(url: info.imageURL)
         self.elementLabel.text = info.name
         self.descriptionsLabel.text = info.description
-        info.isFavorite ? self.setFavorite() : self.unsetFavorite()
+        self.isFavorite = info.isFavorite
+        self.isFavorite ? self.setFavorite() : self.unsetFavorite()
     }
 
     private func setFavorite() {
@@ -36,5 +39,7 @@ class ResultCell: UITableViewCell {
     }
 
     @IBAction func favoriteButtonAction(_ sender: Any) {
+        self.isFavorite.toggle()
+        self.isFavorite ? self.setFavorite() : self.unsetFavorite()
     }
 }
