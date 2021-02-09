@@ -30,6 +30,7 @@
 		9E24739025D31D2200D4AF9C /* UIViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24738F25D31D2200D4AF9C /* UIViewControllerMock.swift */; };
 		9E24739625D320F800D4AF9C /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24739525D320F800D4AF9C /* SearchViewControllerTests.swift */; };
 		9E24739E25D323FD00D4AF9C /* SearchPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24739D25D323FD00D4AF9C /* SearchPresenterTests.swift */; };
+		9E2473A225D32A6C00D4AF9C /* SearchInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2473A125D32A6C00D4AF9C /* SearchInteractorTests.swift */; };
 		9E5C749725CEA35D008D5EF4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */; };
 		9E5C74A725CEBE12008D5EF4 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */; };
 		9E5C74AD25CEC263008D5EF4 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */; };
@@ -86,6 +87,7 @@
 		9E24738F25D31D2200D4AF9C /* UIViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerMock.swift; sourceTree = "<group>"; };
 		9E24739525D320F800D4AF9C /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
 		9E24739D25D323FD00D4AF9C /* SearchPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenterTests.swift; sourceTree = "<group>"; };
+		9E2473A125D32A6C00D4AF9C /* SearchInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractorTests.swift; sourceTree = "<group>"; };
 		9E5C749625CEA35D008D5EF4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5C74A625CEBE12008D5EF4 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		9E5C74AC25CEC263008D5EF4 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				9E24739525D320F800D4AF9C /* SearchViewControllerTests.swift */,
 				9E24739D25D323FD00D4AF9C /* SearchPresenterTests.swift */,
+				9E2473A125D32A6C00D4AF9C /* SearchInteractorTests.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				9E24739025D31D2200D4AF9C /* UIViewControllerMock.swift in Sources */,
 				9E24736925D30B3500D4AF9C /* AuthorizationManagerTests.swift in Sources */,
 				9E24738B25D31C9300D4AF9C /* AuthorizationCoordinatorTests.swift in Sources */,
+				9E2473A225D32A6C00D4AF9C /* SearchInteractorTests.swift in Sources */,
 				9E24737F25D3163600D4AF9C /* AuthorizationViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

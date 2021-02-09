@@ -70,6 +70,7 @@ class KeychainManagerProtocolMock: KeychainManagerProtocol {
 class TokenManagerProtocolMock: TokenManagerProtocol {
 
     var requestTokenWasCalled = false
+    var refreshTokenWasCalled = false
 
     func requestToken(withAuthorizationCode code: String, onSuccess: @escaping (TokenDTO) -> Void, onError: ((Error?) -> Void)?) {
         requestTokenWasCalled = true
@@ -77,6 +78,7 @@ class TokenManagerProtocolMock: TokenManagerProtocol {
     }
 
     func refreshToken(token: String, onSuccess: @escaping (TokenDTO) -> Void, onError: ((Error?) -> Void)?) {
-
+        refreshTokenWasCalled = true
+        onSuccess(TokenDTO(accessToken: "", expiresIn: 0.0, refreshToken: ""))
     }
 }

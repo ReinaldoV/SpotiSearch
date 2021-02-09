@@ -63,13 +63,14 @@ class SearchPresenterProtocolMock: SearchPresenterProtocol {
 
     var updateTokenWasCalled = false
     var getTokenWasCalled = false
+    var refreshSearchTableWasCalled = false
 
     func logout() {
 
     }
 
     func refreshSearchTable(withItems items: [SearchItem]) {
-
+        refreshSearchTableWasCalled = true
     }
 
     func getToken(withRefreshToken refreshToken: String) {
