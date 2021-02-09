@@ -13,6 +13,7 @@ protocol SearchViewControllerProtocol: UIViewController {
     func reloadTable()
     func addEmptySearchView()
     func deleteEmptySearchView()
+    func openAuthViewForNewToken()
 }
 
 class SearchViewController: UIViewController {
@@ -205,5 +206,9 @@ extension SearchViewController: SearchViewControllerProtocol {
 
     func deleteEmptySearchView() {
         self.resultsTableView.backgroundView = nil
+    }
+
+    func openAuthViewForNewToken() {
+        self.coordinator?.logout()
     }
 }

@@ -17,6 +17,7 @@ protocol SearchPresenterProtocol: class {
     func requestSearch(withSearchString searchString: String?, andType type: SearchTypeCell.CellType?)
     func addFavorites(itemOnIndex index: Int)
     func isFavorite(itemOnIndex index: IndexPath) -> Bool
+    func askForOtherToken()
 }
 
 class SearchPresenter {
@@ -112,5 +113,13 @@ extension SearchPresenter: SearchPresenterProtocol {
     func isFavorite(itemOnIndex index: IndexPath) -> Bool {
         guard self.cellModels.count > index.row else { return false }
         return self.interactor.isFavorite(itemID: self.cellModels[index.row].id)
+    }
+
+    func askForOtherToken() {
+        self.cellModels = [ResultCellModel]()
+        DispatchQueue.main.async {
+            self.view?.reloadTable()
+            self.view?.openAuthViewForNewToken()
+        }
     }
 }

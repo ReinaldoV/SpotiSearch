@@ -45,7 +45,9 @@ extension SearchInteractor: SearchInteractorProtocol {
             self.token = Token(tokenDTO: tokenDTO)
             //update refreshToken on keychain
         } onError: { error in
-            //Handle errors
+            //Ask for new token
+            self.logout()
+            self.presenter?.askForOtherToken()
         }
     }
 
