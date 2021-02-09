@@ -99,7 +99,7 @@ struct SearchResultDTO: Codable {
     let id: String
     let popularity: Int?
     let images: [ImageResultDTO]?
-    let artist: [ArtistDTO]?
+    let artists: [ArtistDTO]?
     let album: AlbumDTO?
 }
 

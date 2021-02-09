@@ -38,7 +38,7 @@ struct SearchItem {
         self.type = SearchItemType(withDTO: dto.type)
         self.id = dto.id
         self.popularity = dto.popularity ?? 0
-        self.artist = dto.artist?.first?.name
+        self.artist = dto.artists?.first?.name
         self.album = dto.album?.name
         if let images = dto.images {
             self.imageURL = images.min()?.url
