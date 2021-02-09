@@ -18,11 +18,16 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var resultsTableView: UITableView!
     let searchTypeCellIdentifier = "kSearchTypeCell"
     let resultCellIdentifier = "kResultCell"
+    var presenter: SearchPresenterProtocol?
+    var coordinator: AppCoordinatorProtocol?
     var firstLoad = true
 
-    static func instantiate() -> SearchViewController {
+    static func instantiate(presenter: SearchPresenterProtocol,
+                            coordinator: AppCoordinatorProtocol) -> SearchViewController {
         let nib = UINib(nibName: "SearchViewController", bundle: nil)
         let viewController = nib.instantiate(withOwner: self, options: nil)[0] as? SearchViewController
+        viewController?.presenter = presenter
+        viewController?.coordinator = coordinator
         return viewController ?? SearchViewController()
     }
 

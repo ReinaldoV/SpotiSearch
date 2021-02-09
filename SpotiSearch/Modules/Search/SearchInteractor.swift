@@ -15,17 +15,15 @@ class SearchInteractor {
 
     let tokenManager: TokenManager
     let searchManager: SearchManager
-    let presenter: SearchPresenterProtocol
     var searchItems = [SearchItem]()
     var token: Token?
+    weak var presenter: SearchPresenterProtocol?
 
     init(tokenManager: TokenManager,
          searchManager: SearchManager,
-         presenter: SearchPresenterProtocol,
          token: Token? = nil) {
         self.tokenManager = tokenManager
         self.searchManager = searchManager
-        self.presenter = presenter
         self.token = token
     }
 }
@@ -47,7 +45,7 @@ extension SearchInteractor: SearchInteractorProtocol {
                                   withToken: validToken,
                                   onSuccess: { results in
                                       self.searchItems = results.map { SearchItem(withDTO: $0) }
-                                    //Call to Presenter and update the view on main thread
+                                      //Call to Presenter and update the view on main thread
                                   },
                                   onError: nil)
     }

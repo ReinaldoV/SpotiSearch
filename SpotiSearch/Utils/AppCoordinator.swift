@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AppCoordinatorProtocol {
+
+}
+
 class AppCoordinator {
 
     let window: UIWindow
@@ -26,4 +30,8 @@ class AppCoordinator {
             //put on him the auth view
         }
     }
+}
+
+extension AppCoordinator: AppCoordinatorProtocol {
+    
 }

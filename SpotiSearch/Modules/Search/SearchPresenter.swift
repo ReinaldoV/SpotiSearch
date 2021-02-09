@@ -11,10 +11,11 @@ protocol SearchPresenterProtocol: class {
 
 class SearchPresenter {
 
-    let view: SearchViewControllerProtocol
+    weak var view: SearchViewControllerProtocol?
+    let interactor: SearchInteractorProtocol
 
-    init(view: SearchViewControllerProtocol) {
-        self.view = view
+    init(interactor: SearchInteractorProtocol) {
+        self.interactor = interactor
     }
 
 }
@@ -22,6 +23,6 @@ class SearchPresenter {
 extension SearchPresenter: SearchPresenterProtocol {
     func refreshSearchTable(withItems items: [SearchItem]) {
         let orderedItemsByPopularity = items.sorted { $0.popularity > $1.popularity }
-        
+
     }
 }
