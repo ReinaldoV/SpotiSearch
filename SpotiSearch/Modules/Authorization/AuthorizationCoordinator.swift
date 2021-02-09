@@ -44,8 +44,12 @@ class AuthorizationCoordinator {
         interactor.presenter = presenter
         presenter.viewController = authViewController
         let navigation = UINavigationController(rootViewController: authViewController)
+        navigation.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigation.navigationBar.shadowImage = UIImage()
+        navigation.navigationBar.isTranslucent = true
+        navigation.view.backgroundColor = .clear
         self.authViewController = authViewController
-        navigation.modalPresentationStyle = .fullScreen
+        navigation.modalPresentationStyle = .overCurrentContext
         self.parent.present(navigation, animated: true, completion: nil)
     }
 

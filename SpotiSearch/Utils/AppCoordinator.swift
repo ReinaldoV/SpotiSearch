@@ -49,8 +49,7 @@ class AppCoordinator {
         presenter.view = view
         self.rootViewController = view
 
-        let navigation = UINavigationController(rootViewController: view)
-        self.window.rootViewController = navigation
+        self.window.rootViewController = view
     }
 }
 

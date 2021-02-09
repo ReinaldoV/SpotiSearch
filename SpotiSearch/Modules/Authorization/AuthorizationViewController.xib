@@ -79,6 +79,7 @@
                 </subviews>
                 <viewLayoutGuide key="safeArea" id="olD-zO-Dmf"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="g6N-la-7zo" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="TaS-d7-hYc" secondAttribute="trailing" constant="15" id="5wv-u4-VOc"/>
                     <constraint firstItem="TaS-d7-hYc" firstAttribute="leading" secondItem="olD-zO-Dmf" secondAttribute="leading" id="CLy-Uw-wMg"/>
