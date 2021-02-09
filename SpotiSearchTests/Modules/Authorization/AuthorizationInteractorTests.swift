@@ -11,7 +11,6 @@ import XCTest
 class AuthorizationInteractorTests: XCTestCase {
 
     var sut: AuthorizationInteractor!
-    var presenterMock: AuthorizationPresenterProtocolMock!
     var keychainManagerProtocolMock: KeychainManagerProtocolMock!
     var tokenManagerProtocolMock: TokenManagerProtocolMock!
 
@@ -27,16 +26,16 @@ class AuthorizationInteractorTests: XCTestCase {
     }
 
     func createSut() {
-        presenterMock = AuthorizationPresenterProtocolMock()
         keychainManagerProtocolMock = KeychainManagerProtocolMock()
         tokenManagerProtocolMock = TokenManagerProtocolMock()
         sut = AuthorizationInteractor(keyChainManager: keychainManagerProtocolMock,
                                       tokenManager: tokenManagerProtocolMock)
-        sut.presenter = presenterMock
     }
 
     func releaseSut() {
         sut = nil
+        tokenManagerProtocolMock = nil
+        keychainManagerProtocolMock = nil
     }
 
     // MARK: - Basic test.
