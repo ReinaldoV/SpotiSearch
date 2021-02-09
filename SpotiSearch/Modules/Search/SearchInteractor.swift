@@ -57,6 +57,7 @@ extension SearchInteractor: SearchInteractorProtocol {
         guard let searchString = search, !searchString.isEmpty else {
             //Retrieve the favorites
             self.searchItems = [SearchItem]()
+            self.searchManager.currentTask()?.cancel()
             self.presenter?.refreshSearchTable(withItems: self.favoriteItems)
             return
         }

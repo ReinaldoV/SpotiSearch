@@ -8,6 +8,7 @@
 import Foundation
 
 protocol SearchManagerProtocol {
+    func currentTask() -> URLSessionDataTask?
     func search(_ search: String,
                 for categories: [SearchCategories],
                 withToken token: String,
@@ -33,6 +34,10 @@ enum SearchCategories: String {
 class SearchManager: SearchManagerProtocol {
 
     static var task: URLSessionDataTask?
+
+    func currentTask() -> URLSessionDataTask? {
+        return SearchManager.task
+    }
 
     func search(_ search: String,
                 for categories: [SearchCategories],
