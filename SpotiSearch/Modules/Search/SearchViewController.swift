@@ -92,7 +92,6 @@ class SearchViewController: UIViewController {
         }
         let resultCellNib = UINib(nibName: "ResultCell", bundle: nil)
         tableView.register(resultCellNib, forCellReuseIdentifier: self.resultCellIdentifier)
-        tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
         tableView.separatorStyle = .none
@@ -150,12 +149,6 @@ extension SearchViewController: UICollectionViewDataSource {
 
         typeCell.configureCell(type: SearchTypeCell.CellType.allCases[indexPath.row])
         return typeCell
-    }
-}
-
-extension SearchViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //to implement
     }
 }
 
