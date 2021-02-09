@@ -39,12 +39,9 @@
 		9EAD772325D07957004D334E /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EAD772225D07957004D334E /* Token.swift */; };
 		9EF8A93825CC0A6300EE9AED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */; };
 		9EF8A93A25CC0A6300EE9AED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */; };
-		9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A93B25CC0A6300EE9AED /* ViewController.swift */; };
-		9EF8A93F25CC0A6300EE9AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EF8A93D25CC0A6300EE9AED /* Main.storyboard */; };
 		9EF8A94125CC0A6400EE9AED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EF8A94025CC0A6400EE9AED /* Assets.xcassets */; };
 		9EF8A94425CC0A6400EE9AED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EF8A94225CC0A6400EE9AED /* LaunchScreen.storyboard */; };
 		9EF8A94F25CC0A6400EE9AED /* SpotiSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A94E25CC0A6400EE9AED /* SpotiSearchTests.swift */; };
-		9EF8A95A25CC0A6400EE9AED /* SpotiSearchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A95925CC0A6400EE9AED /* SpotiSearchUITests.swift */; };
 		9EF8A97425CC5AFD00EE9AED /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF8A97325CC5AFD00EE9AED /* AuthorizationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,8 +96,6 @@
 		9EF8A93425CC0A6300EE9AED /* SpotiSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotiSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9EF8A93B25CC0A6300EE9AED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9EF8A93E25CC0A6300EE9AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9EF8A94025CC0A6400EE9AED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9EF8A94325CC0A6400EE9AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9EF8A94525CC0A6400EE9AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,8 +103,6 @@
 		9EF8A94E25CC0A6400EE9AED /* SpotiSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotiSearchTests.swift; sourceTree = "<group>"; };
 		9EF8A95025CC0A6400EE9AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EF8A95525CC0A6400EE9AED /* SpotiSearchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotiSearchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9EF8A95925CC0A6400EE9AED /* SpotiSearchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotiSearchUITests.swift; sourceTree = "<group>"; };
-		9EF8A95B25CC0A6400EE9AED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EF8A97325CC5AFD00EE9AED /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,7 +241,6 @@
 			children = (
 				9EF8A93625CC0A6300EE9AED /* SpotiSearch */,
 				9EF8A94D25CC0A6400EE9AED /* SpotiSearchTests */,
-				9EF8A95825CC0A6400EE9AED /* SpotiSearchUITests */,
 				9EF8A93525CC0A6300EE9AED /* Products */,
 			);
 			sourceTree = "<group>";
@@ -271,8 +263,6 @@
 				9EF8A96C25CC0DBF00EE9AED /* Network */,
 				9EF8A93725CC0A6300EE9AED /* AppDelegate.swift */,
 				9EF8A93925CC0A6300EE9AED /* SceneDelegate.swift */,
-				9EF8A93B25CC0A6300EE9AED /* ViewController.swift */,
-				9EF8A93D25CC0A6300EE9AED /* Main.storyboard */,
 				9EF8A94025CC0A6400EE9AED /* Assets.xcassets */,
 				9EF8A94225CC0A6400EE9AED /* LaunchScreen.storyboard */,
 				9EF8A94525CC0A6400EE9AED /* Info.plist */,
@@ -287,15 +277,6 @@
 				9EF8A95025CC0A6400EE9AED /* Info.plist */,
 			);
 			path = SpotiSearchTests;
-			sourceTree = "<group>";
-		};
-		9EF8A95825CC0A6400EE9AED /* SpotiSearchUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9EF8A95925CC0A6400EE9AED /* SpotiSearchUITests.swift */,
-				9EF8A95B25CC0A6400EE9AED /* Info.plist */,
-			);
-			path = SpotiSearchUITests;
 			sourceTree = "<group>";
 		};
 		9EF8A96C25CC0DBF00EE9AED /* Network */ = {
@@ -419,7 +400,6 @@
 				9E2472EE25D1846E00D4AF9C /* SearchTypeCell.xib in Resources */,
 				9E24735325D2FBA400D4AF9C /* EmptyTableView.xib in Resources */,
 				9E2472E825D17DF700D4AF9C /* SearchViewController.xib in Resources */,
-				9EF8A93F25CC0A6300EE9AED /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,7 +429,6 @@
 				9E5C74BC25CEE221008D5EF4 /* Dictionary.swift in Sources */,
 				9E24733F25D2E44500D4AF9C /* FavoritesManager.swift in Sources */,
 				9E2472F325D1867B00D4AF9C /* SearchTypeCell.swift in Sources */,
-				9EF8A93C25CC0A6300EE9AED /* ViewController.swift in Sources */,
 				9E24732925D1CAD900D4AF9C /* AppCoordinator.swift in Sources */,
 				9E24734B25D2FB9000D4AF9C /* EmptyTableView.swift in Sources */,
 				9E24730525D1A4ED00D4AF9C /* ResultCell.swift in Sources */,
@@ -488,7 +467,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EF8A95A25CC0A6400EE9AED /* SpotiSearchUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,14 +486,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9EF8A93D25CC0A6300EE9AED /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9EF8A93E25CC0A6300EE9AED /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9EF8A94225CC0A6400EE9AED /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
