@@ -24,13 +24,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-1m-eWb">
-                        <rect key="frame" x="70" y="18" width="40" height="24"/>
+                        <rect key="frame" x="70" y="18" width="264" height="24"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                         <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type - Artist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QK1-51-9mc">
-                        <rect key="frame" x="70" y="40" width="86" height="18"/>
+                        <rect key="frame" x="70" y="40" width="264" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -60,9 +60,11 @@
                     <constraint firstItem="QK1-51-9mc" firstAttribute="leading" secondItem="c5m-1m-eWb" secondAttribute="leading" id="PJj-Ga-sW9"/>
                     <constraint firstItem="Ubn-sF-Z2g" firstAttribute="leading" secondItem="u1F-h1-F6C" secondAttribute="leading" constant="10" id="XdZ-2U-gpR"/>
                     <constraint firstItem="QK1-51-9mc" firstAttribute="top" secondItem="c5m-1m-eWb" secondAttribute="bottom" constant="-2" id="a6T-r7-wob"/>
+                    <constraint firstItem="CMU-53-tih" firstAttribute="leading" secondItem="c5m-1m-eWb" secondAttribute="trailing" constant="20" id="d2S-Xh-TRK"/>
                     <constraint firstAttribute="bottom" secondItem="CMU-53-tih" secondAttribute="bottom" constant="15" id="dV8-FQ-gjs"/>
                     <constraint firstAttribute="trailing" secondItem="CMU-53-tih" secondAttribute="trailing" constant="20" id="fyc-Aw-Sni"/>
                     <constraint firstItem="CMU-53-tih" firstAttribute="top" secondItem="u1F-h1-F6C" secondAttribute="top" constant="15" id="hCL-3R-ra0"/>
+                    <constraint firstItem="CMU-53-tih" firstAttribute="leading" secondItem="QK1-51-9mc" secondAttribute="trailing" constant="20" id="sIm-FY-9Jp"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

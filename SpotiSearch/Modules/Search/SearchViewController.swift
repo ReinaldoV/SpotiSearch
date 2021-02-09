@@ -166,5 +166,8 @@ extension SearchViewController: SearchViewControllerProtocol {
 
     func reloadTable() {
         self.resultsTableView.reloadData()
+        if !self.resultsTableView.visibleCells.isEmpty {
+            self.resultsTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+        }
     }
 }
