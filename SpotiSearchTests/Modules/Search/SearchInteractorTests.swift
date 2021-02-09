@@ -56,6 +56,13 @@ class SearchInteractorTests: XCTestCase {
         XCTAssertTrue(tokenManagerMock.refreshTokenWasCalled)
     }
 
+    func testGetTokenFailed() {
+        tokenManagerMock.refreshTokenSucces = false
+        sut.getToken(withRefreshToken: "")
+        XCTAssertTrue(tokenManagerMock.refreshTokenWasCalled)
+        XCTAssertTrue(presenterMock.askForOtherTokenWasCalled)
+    }
+
     func testUpdateToken() {
         let token = Token(accessToken: "fdafda", expiresIn: Date())
         sut.updateToken(withToken: token)

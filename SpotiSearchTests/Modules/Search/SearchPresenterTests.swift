@@ -115,6 +115,7 @@ class SearchViewControllerProtocolMock: UIViewController, SearchViewControllerPr
     var reloadTableWasCalled = false
     var addEmptySearchViewWasCalled = false
     var deleteEmptySearchViewWasCalled = false
+    var openAuthViewForNewTokenWasCalled = false
 
     func recieveNewToken(_ token: Token) {
 
@@ -134,6 +135,10 @@ class SearchViewControllerProtocolMock: UIViewController, SearchViewControllerPr
 
     func deleteEmptySearchView() {
         deleteEmptySearchViewWasCalled = true
+    }
+
+    func openAuthViewForNewToken() {
+        openAuthViewForNewTokenWasCalled = true
     }
 }
 

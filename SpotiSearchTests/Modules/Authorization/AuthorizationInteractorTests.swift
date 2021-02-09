@@ -72,6 +72,8 @@ class TokenManagerProtocolMock: TokenManagerProtocol {
     var requestTokenWasCalled = false
     var refreshTokenWasCalled = false
 
+    var refreshTokenSucces = true
+
     func requestToken(withAuthorizationCode code: String, onSuccess: @escaping (TokenDTO) -> Void, onError: ((Error?) -> Void)?) {
         requestTokenWasCalled = true
         onSuccess(TokenDTO(accessToken: "", expiresIn: 0.0, refreshToken: ""))
@@ -79,6 +81,10 @@ class TokenManagerProtocolMock: TokenManagerProtocol {
 
     func refreshToken(token: String, onSuccess: @escaping (TokenDTO) -> Void, onError: ((Error?) -> Void)?) {
         refreshTokenWasCalled = true
-        onSuccess(TokenDTO(accessToken: "", expiresIn: 0.0, refreshToken: ""))
+        if refreshTokenSucces {
+            onSuccess(TokenDTO(accessToken: "", expiresIn: 0.0, refreshToken: ""))
+        } else {
+            onError?(nil)
+        }
     }
 }

@@ -57,6 +57,11 @@ class SearchViewControllerTests: XCTestCase {
         sut.getNewToken(withRefreshToken: "")
         XCTAssertTrue(searchPresenterProtocolMock.getTokenWasCalled)
     }
+
+    func testOpenAuthViewForNewToken() {
+        sut.openAuthViewForNewToken()
+        XCTAssertTrue(appCoordinatorProtocolMock.logoutWasCalled)
+    }
 }
 
 class SearchPresenterProtocolMock: SearchPresenterProtocol {
@@ -64,9 +69,11 @@ class SearchPresenterProtocolMock: SearchPresenterProtocol {
     var updateTokenWasCalled = false
     var getTokenWasCalled = false
     var refreshSearchTableWasCalled = false
+    var askForOtherTokenWasCalled = false
+    var logoutWasCalled = false
 
     func logout() {
-
+        logoutWasCalled = true
     }
 
     func refreshSearchTable(withItems items: [SearchItem]) {
@@ -104,10 +111,17 @@ class SearchPresenterProtocolMock: SearchPresenterProtocol {
     func isFavorite(itemOnIndex index: IndexPath) -> Bool {
         return false
     }
+
+    func askForOtherToken() {
+        askForOtherTokenWasCalled = true
+    }
 }
 
 class AppCoordinatorProtocolMock: AppCoordinatorProtocol {
-    func logout() {
 
+    var logoutWasCalled = false
+
+    func logout() {
+        logoutWasCalled = true
     }
 }
