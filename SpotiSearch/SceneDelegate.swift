@@ -19,10 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
 
             let coordinator = AppCoordinator(window: window, keychainManager: KeychainManager())
-            coordinator.start()
-
             self.window = window
             window.makeKeyAndVisible()
+            coordinator.start()
         }
     }
 

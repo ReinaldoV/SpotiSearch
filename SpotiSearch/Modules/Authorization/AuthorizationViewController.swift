@@ -86,6 +86,6 @@ extension AuthorizationViewController: AuthorizationViewControllerProtocol {
     }
 
     func passTokenInfoToCoordinator(_ token: Token) {
-
+        self.coordinator?.recieveTokenFromAuth(token: token)
     }
 }

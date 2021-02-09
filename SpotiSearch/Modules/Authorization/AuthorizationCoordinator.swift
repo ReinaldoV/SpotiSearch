@@ -63,6 +63,7 @@ extension AuthorizationCoordinator: AuthorizationCoordinatorProtocol {
     }
 
     func recieveTokenFromAuth(token: Token) {
+        self.authViewController?.dismiss(animated: true, completion: nil)
         self.tokenDelegate?.newTokenRecived(token: token)
     }
 }
