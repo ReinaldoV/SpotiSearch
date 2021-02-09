@@ -12,16 +12,18 @@ class FavoritesManager {
     let favoritesKey = "favoritesKey"
 
     func saveFavorites(favorites: [SearchItem]) {
+        let data = favorites.map { try? JSONEncoder().encode($0) }
         let defaults = UserDefaults.standard
-        defaults.set(favorites, forKey: favoritesKey)
+        defaults.set(data, forKey: self.favoritesKey)
     }
 
     func loadFavorites() -> [SearchItem] {
         let defaults = UserDefaults.standard
-        guard let favorites = defaults.object(forKey: favoritesKey) as? [SearchItem] else {
+        guard let encodedData = defaults.array(forKey: self.favoritesKey) as? [Data] else {
             return [SearchItem]()
         }
-        return favorites
+
+        return encodedData.map { try! JSONDecoder().decode(SearchItem.self, from: $0) }
     }
 
     func deleteFavorites() {

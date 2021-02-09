@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SearchItem {
+struct SearchItem: Codable {
 
     let name: String
     let type: SearchItemType
@@ -50,7 +50,7 @@ struct SearchItem {
     }
 }
 
-enum SearchItemType {
+enum SearchItemType: String, Codable {
     case track
     case album
     case artist
