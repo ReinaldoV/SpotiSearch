@@ -123,18 +123,15 @@ extension SearchViewController: UITableViewDelegate {
 
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return self.presenter?.numberOfRows() ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let resultCell = tableView.dequeueReusableCell(withIdentifier: self.resultCellIdentifier,
-                                                             for: indexPath) as? ResultCell else {
+                                                             for: indexPath) as? ResultCell,
+            let model = self.presenter?.modelFor(cellForRowAt: indexPath) else {
             return ResultCell()
         }
-        let model = ResultCellModel(name: "Nombre Loco",
-                                    description: "Album · Maluma",
-                                    isFavorite: false,
-                                    imageURL: nil)
         resultCell.configureCell(info: model)
         resultCell.selectionStyle = .none
         return resultCell

@@ -5,10 +5,14 @@
 //  Created by Reinaldo Villanueva Javierre on 8/2/21.
 //
 
+import UIKit
+
 protocol SearchPresenterProtocol: class {
     func refreshSearchTable(withItems items: [SearchItem])
     func getToken(withRefreshToken refreshToken: String)
     func updateToken(withToken token: Token)
+    func numberOfRows() -> Int
+    func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel
 }
 
 class SearchPresenter {
@@ -51,5 +55,17 @@ extension SearchPresenter: SearchPresenterProtocol {
 
     func updateToken(withToken token: Token) {
         self.interactor.updateToken(withToken: token)
+    }
+
+    func numberOfRows() -> Int {
+        return self.cellModels.count
+    }
+
+    func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel {
+        guard self.cellModels.count > indexPath.row else { return ResultCellModel(name: "",
+                                                                                  description: "",
+                                                                                  isFavorite: false,
+                                                                                  imageURL: nil) }
+        return self.cellModels[indexPath.row]
     }
 }
