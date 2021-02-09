@@ -28,7 +28,8 @@ extension AuthorizationInteractor: AuthorizationInteractorProtocol {
     func requestToken(withAuthCode code: String) {
         self.tokenManager.requestToken(withAuthorizationCode: code) { tokenDTO in
             do {
-                try self.keyChainManager.storeItem(code: tokenDTO.refreshToken)
+                guard let refreshToken = tokenDTO.refreshToken else { return }
+                try self.keyChainManager.storeItem(code: refreshToken)
                 DispatchQueue.main.async {
                     self.presenter?.refreshInfoInView(withToken: Token(tokenDTO: tokenDTO))
                 }

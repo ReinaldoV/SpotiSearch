@@ -19,8 +19,8 @@ class ViewController: UIViewController {
 //        coord.start()
 
 
-        let search = SearchViewController.instantiate()
-        self.navigationController?.pushViewController(search, animated: true)
+//        let search = SearchViewController.instantiate()
+//        self.navigationController?.pushViewController(search, animated: true)
     }
 
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SearchViewControllerProtocol: class {
+protocol SearchViewControllerProtocol: UIViewController {
 
 }
 

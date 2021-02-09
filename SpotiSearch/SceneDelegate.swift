@@ -17,10 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
 
             let window = UIWindow(windowScene: windowScene)
-            let view = ViewController()
 
-            let navigation = UINavigationController(rootViewController: view)
-            window.rootViewController = navigation
+            let coordinator = AppCoordinator(window: window, keychainManager: KeychainManager())
+            coordinator.start()
 
             self.window = window
             window.makeKeyAndVisible()

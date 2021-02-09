@@ -103,5 +103,5 @@ class TokenManager: TokenManagerProtocol {
 struct TokenDTO: Codable {
     let accessToken: String
     let expiresIn: Double
-    let refreshToken: String
+    let refreshToken: String? //This is optional as when asking for a refreshToken It's not mandatory to get one
 }
