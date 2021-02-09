@@ -7,7 +7,13 @@
 
 import Foundation
 
-class FavoritesManager {
+protocol FavoritesManagerProtocol {
+    func saveFavorites(favorites: [SearchItem])
+    func loadFavorites() -> [SearchItem]
+    func deleteFavorites()
+}
+
+class FavoritesManager: FavoritesManagerProtocol {
 
     let favoritesKey = "favoritesKey"
 

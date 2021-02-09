@@ -13,22 +13,22 @@ protocol SearchInteractorProtocol: class {
     func makeSearch(_ search: String?, oftype types: [SearchItemType])
     func isFavorite(itemID: String) -> Bool
     func logout()
-    func addFavorite(_ item: ResultCellModel)
+    func addFavoriteOrDelete(_ item: ResultCellModel)
 }
 
 class SearchInteractor {
 
-    let tokenManager: TokenManager
-    let searchManager: SearchManager
-    let favoritesManager: FavoritesManager
+    let tokenManager: TokenManagerProtocol
+    let searchManager: SearchManagerProtocol
+    let favoritesManager: FavoritesManagerProtocol
     var searchItems = [SearchItem]()
     var favoriteItems = [SearchItem]()
     var token: Token?
     weak var presenter: SearchPresenterProtocol?
 
-    init(tokenManager: TokenManager,
-         searchManager: SearchManager,
-         favoritesManager: FavoritesManager,
+    init(tokenManager: TokenManagerProtocol,
+         searchManager: SearchManagerProtocol,
+         favoritesManager: FavoritesManagerProtocol,
          token: Token? = nil) {
         self.tokenManager = tokenManager
         self.searchManager = searchManager
@@ -54,15 +54,17 @@ extension SearchInteractor: SearchInteractorProtocol {
     }
 
     func makeSearch(_ search: String?, oftype types: [SearchItemType]) {
-        guard let validToken = self.token?.accessToken else { return }
-
         guard let searchString = search, !searchString.isEmpty else {
             //Retrieve the favorites
+            self.searchItems = [SearchItem]()
+            self.presenter?.refreshSearchTable(withItems: self.favoriteItems)
             return
         }
 
+        guard let validToken = self.token?.accessToken else { return }
+
         self.searchManager.search(searchString,
-                                  for: types.map { SearchManager.SearchCategories(withSearchItemType: $0) },
+                                  for: types.map { SearchCategories(withSearchItemType: $0) },
                                   withToken: validToken,
                                   onSuccess: { results in
                                       self.searchItems = results.map { SearchItem(withDTO: $0) }
@@ -83,10 +85,21 @@ extension SearchInteractor: SearchInteractorProtocol {
         self.favoritesManager.deleteFavorites()
     }
 
-    func addFavorite(_ item: ResultCellModel) {
-        guard let searchItem = self.searchItems.first(where: { $0.id == item.id }) else { return }
-        self.favoriteItems.append(searchItem)
+    func addFavoriteOrDelete(_ item: ResultCellModel) {
+        if let favoriteItem = self.favoriteItems.first(where: { $0.id == item.id }) {
+            //DeleteItem
+            self.favoriteItems.removeAll(where: { favoriteItem.id == $0.id })
+        } else if let searchItem = self.searchItems.first(where: { $0.id == item.id }) {
+            //AddItem
+            self.favoriteItems.append(searchItem)
+        } else {
+            return
+        }
         self.favoritesManager.deleteFavorites()
         self.favoritesManager.saveFavorites(favorites: self.favoriteItems)
+
+        if self.searchItems.isEmpty {
+            self.presenter?.refreshSearchTable(withItems: self.favoriteItems)
+        }
     }
 }

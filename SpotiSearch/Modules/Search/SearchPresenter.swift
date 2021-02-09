@@ -100,7 +100,7 @@ extension SearchPresenter: SearchPresenterProtocol {
 
     func addFavorites(itemOnIndex index: Int) {
         guard self.cellModels.count > index else { return }
-        self.interactor.addFavorite(self.cellModels[index])
+        self.interactor.addFavoriteOrDelete(self.cellModels[index])
     }
 
     func isFavorite(itemOnIndex index: IndexPath) -> Bool {

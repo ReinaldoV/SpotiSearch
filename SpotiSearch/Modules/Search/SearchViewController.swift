@@ -48,6 +48,7 @@ class SearchViewController: UIViewController {
             let index = IndexPath(row: 0, section: 0)
             self.typeCollectionView.selectItem(at: index, animated: false, scrollPosition: .left)
             self.firstLoad = false
+            self.search()
         }
     }
 

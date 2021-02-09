@@ -7,22 +7,30 @@
 
 import Foundation
 
-class SearchManager {
+protocol SearchManagerProtocol {
+    func search(_ search: String,
+                for categories: [SearchCategories],
+                withToken token: String,
+                onSuccess: @escaping ([SearchResultDTO]) -> Void,
+                onError: ((_ error: Error?) -> Void)?)
+}
 
-    enum SearchCategories: String {
-        case album, artist, track, playlist, show, episode
+enum SearchCategories: String {
+    case album, artist, track, playlist, show, episode
 
-        init(withSearchItemType type: SearchItemType) {
-            switch type {
-            case .album:
-                self = .album
-            case .artist:
-                self = .artist
-            case .track:
-                self = .track
-            }
+    init(withSearchItemType type: SearchItemType) {
+        switch type {
+        case .album:
+            self = .album
+        case .artist:
+            self = .artist
+        case .track:
+            self = .track
         }
     }
+}
+
+class SearchManager: SearchManagerProtocol {
 
     func search(_ search: String,
                 for categories: [SearchCategories],
