@@ -13,7 +13,7 @@ protocol SearchPresenterProtocol: class {
     func updateToken(withToken token: Token)
     func numberOfRows() -> Int
     func modelFor(cellForRowAt indexPath: IndexPath) -> ResultCellModel
-    func requestSearch(withSearchString: String?, andType type: SearchTypeCell.CellType?)
+    func requestSearch(withSearchString searchString: String?, andType type: SearchTypeCell.CellType?)
 }
 
 class SearchPresenter {
@@ -70,7 +70,20 @@ extension SearchPresenter: SearchPresenterProtocol {
         return self.cellModels[indexPath.row]
     }
 
-    func requestSearch(withSearchString: String?, andType type: SearchTypeCell.CellType?) {
-        
+    func requestSearch(withSearchString searchString: String?, andType type: SearchTypeCell.CellType?) {
+        var types = [SearchItemType]()
+        switch type {
+        case .Top:
+            types = [.track, .artist, .album]
+        case .Album:
+            types = [.album]
+        case .Artist:
+            types = [.artist]
+        case .Tracks:
+            types = [.track]
+        case .none:
+            types = [.track, .artist, .album]
+        }
+        self.interactor.makeSearch(searchString, oftype: types)
     }
 }

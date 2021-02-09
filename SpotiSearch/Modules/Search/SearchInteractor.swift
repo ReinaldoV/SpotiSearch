@@ -10,7 +10,7 @@ import Foundation
 protocol SearchInteractorProtocol: class {
     func getToken(withRefreshToken refreshToken: String)
     func updateToken(withToken token: Token)
-    func makeSearch(_ search: String, oftype types: [SearchItemType])
+    func makeSearch(_ search: String?, oftype types: [SearchItemType])
     func isFavorite(_ searchItem: SearchItem) -> Bool
 }
 
@@ -46,9 +46,15 @@ extension SearchInteractor: SearchInteractorProtocol {
         self.token = token
     }
 
-    func makeSearch(_ search: String, oftype types: [SearchItemType]) {
+    func makeSearch(_ search: String?, oftype types: [SearchItemType]) {
         guard let validToken = self.token?.accessToken else { return }
-        self.searchManager.search(search,
+
+        guard let searchString = search, !searchString.isEmpty else {
+            //Retrieve the favorites
+            return
+        }
+
+        self.searchManager.search(searchString,
                                   for: types.map { SearchManager.SearchCategories(withSearchItemType: $0) },
                                   withToken: validToken,
                                   onSuccess: { results in
