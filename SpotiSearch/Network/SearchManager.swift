@@ -32,11 +32,14 @@ enum SearchCategories: String {
 
 class SearchManager: SearchManagerProtocol {
 
+    static var task: URLSessionDataTask?
+
     func search(_ search: String,
                 for categories: [SearchCategories],
                 withToken token: String,
                 onSuccess: @escaping ([SearchResultDTO]) -> Void,
                 onError: ((_ error: Error?) -> Void)?) {
+        SearchManager.task?.cancel()
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
         urlComponents.host = "api.spotify.com"
@@ -55,7 +58,7 @@ class SearchManager: SearchManagerProtocol {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
 
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        SearchManager.task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
                 error == nil else { // check for fundamental networking error
@@ -85,7 +88,7 @@ class SearchManager: SearchManagerProtocol {
             }
         }
 
-        task.resume()
+        SearchManager.task?.resume()
     }
 }
 
