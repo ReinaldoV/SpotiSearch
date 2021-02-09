@@ -5,10 +5,13 @@
 //  Created by Reinaldo Villanueva Javierre on 8/2/21.
 //
 
+import Foundation
+
 protocol SearchInteractorProtocol: class {
     func getToken(withRefreshToken refreshToken: String)
     func updateToken(withToken token: Token)
     func makeSearch(_ search: String, oftype types: [SearchItemType])
+    func isFavorite(_ searchItem: SearchItem) -> Bool
 }
 
 class SearchInteractor {
@@ -50,9 +53,14 @@ extension SearchInteractor: SearchInteractorProtocol {
                                   withToken: validToken,
                                   onSuccess: { results in
                                       self.searchItems = results.map { SearchItem(withDTO: $0) }
-                                      self.presenter?.refreshSearchTable(withItems: self.searchItems)
-                                      //Call to Presenter and update the view on main thread
+                                      DispatchQueue.main.async {
+                                          self.presenter?.refreshSearchTable(withItems: self.searchItems)
+                                      }
                                   },
                                   onError: nil)
+    }
+
+    func isFavorite(_ searchItem: SearchItem) -> Bool {
+        return false //to be implemented
     }
 }

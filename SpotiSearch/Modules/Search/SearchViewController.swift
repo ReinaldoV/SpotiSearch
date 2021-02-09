@@ -10,6 +10,7 @@ import UIKit
 protocol SearchViewControllerProtocol: UIViewController {
     func recieveNewToken(_ token: Token)
     func getNewToken(withRefreshToken refreshToken: String)
+    func reloadTable()
 }
 
 class SearchViewController: UIViewController {
@@ -147,5 +148,9 @@ extension SearchViewController: SearchViewControllerProtocol {
 
     func getNewToken(withRefreshToken refreshToken: String) {
         self.presenter?.getToken(withRefreshToken: refreshToken)
+    }
+
+    func reloadTable() {
+        self.resultsTableView.reloadData()
     }
 }

@@ -65,4 +65,15 @@ enum SearchItemType {
             self = .track
         }
     }
+
+    func stringValue() -> String {
+        switch self {
+        case .album:
+            return "Album"
+        case .track:
+            return "Track"
+        case .artist:
+            return "Artirst"
+        }
+    }
 }
